@@ -35,7 +35,7 @@
                     <a href="#" class="nav-item nav-link active"><i class="fas fa-home"></i> Início</a> 
                     <a href="#" class="nav-item nav-link"><i class="fas fa-info-circle"></i> Sobre</a>
                     <a href="#" class="nav-item nav-link"><i class="fas fa-user"></i> Área do usuário</a>
-                    <a href="#" class="nav-item nav-link"><i class="fas fa-video"></i> Rankings</a>
+                    <a href="#" class="nav-item nav-link"><i class="fas fa-trophy"></i> Rankings</a>
                 </div>
             
                 <div class="navbar-nav ml-auto dropdown" style="font-size: 1em">
@@ -68,7 +68,7 @@
                             </form>
                         </div>
                     @else
-                        <a href="#" class="nav-item nav-link" style="font-size: 1.5em">
+                        <a href="{{ route('login') }}" class="nav-item nav-link" style="font-size: 1.5em">
                             <i class="fas fa-sign-in-alt"></i> Login
                         </a>
                     @endif
