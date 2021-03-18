@@ -32,7 +32,7 @@
 
             <div class="collapse navbar-collapse headerText" id="navbarCollapse">
                 <div class="navbar-nav">
-                    <a href="#" class="nav-item nav-link active"><i class="fas fa-home"></i> Início</a>
+                    <a href="#" class="nav-item nav-link active"><i class="fas fa-home"></i> Início</a> 
                     <a href="#" class="nav-item nav-link"><i class="fas fa-info-circle"></i> Sobre</a>
                     <a href="#" class="nav-item nav-link"><i class="fas fa-user"></i> Área do usuário</a>
                     <a href="#" class="nav-item nav-link"><i class="fas fa-trophy"></i> Rankings</a>
