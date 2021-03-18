@@ -1,0 +1,61 @@
+.bs-example {
+    padding-top: 1em;
+    background-color: #00AEEF
+}
+
+.headerText a {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 2em;
+    color: white !important
+}
+
+.header-frase {
+    color: white;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 2em;
+    text-align: center;
+    margin-top: 1em;
+    padding-bottom: 1.5em;
+}
+
+.navbar-toggler{background-color: white !important;}
+
+.userAvatar{
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.dropdown-menu a{ color: #00AEEF !important;}
+.dropdown-item{font-size: 1em !important;}
+
+/*Customização do botão navibar mobile*/
+.custom-toggler.navbar-toggler { border-color: #00AEEF !important;}
+.fa-bars{color: #00AEEF;}
+/**/
+
+.logoMaoAmiga {
+    width: 11em;
+    height: auto;
+    margin-right: 2em
+}
+
+.icone-video{
+    background-image: url(../img/icone-video-branco.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+@media (min-width: 1200px){
+    .col-2{max-width: 100% !important; width: 2.9em !important; height: 2.9em;}
+    .col-xl-1{max-width: 100% !important; width: 2.9em !important; height: 2.9em;}
+    .col-lg-1{max-width: 100% !important; width: 2.9em !important; height: 2.9em;}
+}
+@media (min-width: 768px){
+    .col-md-1{max-width: 100% !important; width: 2em !important; height: 3em;}
+}
+.col-sm-2 {max-width: 100% !important; width: 2.9em !important; height: 2.9em;}
+.col-xs-1{max-width: 100% !important; width: 2.9em !important; height: 2.9em;}
