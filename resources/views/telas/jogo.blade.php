@@ -5,6 +5,7 @@
 <script src="js/jquery-ui.js"></script>
 
 <link rel="stylesheet" href="{{asset('css/jogo.css')}}">
+<link rel="stylesheet" href="{{secure_asset('css/jogo.css')}}">
 
 <section class="container section">
     
@@ -21,7 +22,7 @@
             </button>
 
         </div>
-        <div class="row justify-content-center area">
+        <div class="row area">
 
             @foreach ($animals as $animal)
                 <div class="col" style="background-color: #eefdff; padding: 1em">
@@ -31,10 +32,10 @@
 
         </div>
 
-        <div class="row area">
+        <div class="row area ">
 
             @foreach ($quadros as $quadro)
-                <div class="col" style="margin-bottom: 1em">
+                <div class="col " style="margin-bottom: 1em">
                     <div class="quadro text-center" id="quadro_{{ $quadro->id }}" ondrop="drop(event)" ondragover="allowDrop(event)">
                         <button type="button" class="btn btn-primary" style="margin-bottom: 1em">{{ $quadro->name }}</button>
                     </div> <br>
