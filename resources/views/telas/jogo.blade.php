@@ -27,6 +27,7 @@
             @foreach ($animals as $animal)
                 <div class="col" style="background-color: #eefdff; padding: 1em">
                     <img id="imagem_{{ $animal->id }}" src="{{ url("storage/$animal->image") }}" draggable="true" ondragstart="drag(event)">
+                    <img id="imagem_{{ $animal->id }}" src="{{ secure_url("storage/$animal->image") }}" draggable="true" ondragstart="drag(event)">
                 </div>
             @endforeach
 
