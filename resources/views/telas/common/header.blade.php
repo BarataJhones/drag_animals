@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{{asset('css/fontawesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('https://use.fontawesome.com/releases/v5.0.6/css/all.css')}}">
 
+    @include ('telas.heroku.herokuHeader')
+
 </head>
 
 <body>
@@ -34,7 +36,7 @@
 
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav">
-                    <a href="#" class="headerText nav-item nav-link active"><i class="fas fa-home"></i> Início</a> 
+                    <a href="{{ route('return.index') }}" class="headerText nav-item nav-link active"><i class="fas fa-home"></i> Início</a> 
                     <a href="#" class="headerText nav-item nav-link"><i class="fas fa-info-circle"></i> Sobre</a>
                     <a href="#" class="headerText nav-item nav-link"><i class="fas fa-user"></i> Área do usuário</a>
                     <a href="#" class="headerText nav-item nav-link"><i class="fas fa-trophy"></i> Rankings</a>
