@@ -18,8 +18,6 @@
     <link rel="stylesheet" href="{{asset('css/fontawesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('https://use.fontawesome.com/releases/v5.0.6/css/all.css')}}">
 
-    @include ('telas.heroku.herokuHeader')
-
 </head>
 
 <body>

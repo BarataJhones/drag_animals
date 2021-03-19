@@ -7,7 +7,6 @@
     <title>Drag Animals</title>
     <link rel="shortcut icon" href="https://www.pngkit.com/png/full/392-3929588_kawaii-cute-edit-editing-overlay-png-dog-draw.png" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('css/main.css')}}">
 </head>
 <body>
     @include ('telas.common.header')
