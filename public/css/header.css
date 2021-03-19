@@ -4,8 +4,8 @@
 }
 
 .headerText a {
-    font-size: 2em;
-    color: white !important
+    font-size: 0.9em;
+    color: white !important;
 }
 
 .header-frase {
@@ -13,7 +13,6 @@
     font-family: 'Montserrat Alternates', sans-serif;
     font-weight: bold;
     font-style: italic;
-    font-size: 2em;
     text-align: center;
     margin-top: 1em;
     padding-bottom: 1.5em;
@@ -36,14 +35,14 @@
 .fa-bars{color: #00AEEF;}
 /**/
 
-.logoMaoAmiga {
-    width: 11em;
+.logoDragAnimals {
+    width: 5em;
     height: auto;
     margin-right: 2em
 }
 
 .icone-video{
-    background-image: url(../img/icone-video-branco.png);
+    background-image: url('https://casule.com/wp-content/uploads/2019/07/icone-play-branco.png');
     background-repeat: no-repeat;
     display: block;
 }

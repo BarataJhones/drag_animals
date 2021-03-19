@@ -14,21 +14,21 @@
 
             <!-- Name -->
             <div>
-                <x-label for="name" :value="__('Name')" />
+                <x-label for="name" :value="__('Nome')" />
 
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
 
             <!-- Email Address -->
             <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
+                <x-label for="email" :value="__('E-mail')" />
 
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
 
             <!-- Password -->
             <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+                <x-label for="password" :value="__('Senha')" />
 
                 <x-input id="password" class="block mt-1 w-full"
                                 type="password"
@@ -38,20 +38,71 @@
 
             <!-- Confirm Password -->
             <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+                <x-label for="password_confirmation" :value="__('Confirme a senha')" />
 
                 <x-input id="password_confirmation" class="block mt-1 w-full"
                                 type="password"
                                 name="password_confirmation" required />
             </div>
 
+            <!-- Birthday -->
+            <div class="mt-4">
+                <x-label for="birthday" :value="__('Data de nascimento')" />
+                <x-input id="birthday" class="block mt-1 w-full"
+                                    type="date"
+                                    name="birthday" required/>
+            </div>
+
+            <!-- Gender -->
+            <div class="mt-4">
+                <x-label for="gender" :value="__('Gênero')" />
+                <div class="flex justify-between mt-2 mb-1" >
+                    <x-input id="gender"
+                            type="radio"
+                            name="gender"
+                            value="female" required/>
+                    <span class="text-sm">Feminino</span>
+                    <x-input id="gender"
+                            type="radio"
+                            name="gender"
+                            value="male"/>
+                    <span class="text-sm">Masculino</span>
+                    <x-input id="gender"
+                            type="radio"
+                            name="gender"
+                            value="nonbinary"/>
+                    <span class="text-sm">Não-binário</span>
+                    <x-input id="gender"
+                            type="radio"
+                            name="gender"
+                            value="other"/>
+                    <span class="text-sm">Outro</span>
+            </div>
+            
+            <!-- Institution -->
+            <div class="mt-4">
+                <x-label for="institution" :value="__('Instituição')" />
+                <x-input id="institution" class="block mt-1 w-full"
+                                    type="text"
+                                    name="institution"/>
+            </div>
+
+            <!-- Grade -->
+            <div class="mt-4">
+                <x-label for="grade" :value="__('Série')" />
+                <x-input id="grade" class="block mt-1 w-full"
+                                    type="text"
+                                    name="grade"/>
+            </div>
+                </div>
+
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
+                    {{ __('Já está cadastrado?') }}
                 </a>
 
                 <x-button class="ml-4">
-                    {{ __('Register') }}
+                    {{ __('Cadastrar') }}
                 </x-button>
             </div>
         </form>

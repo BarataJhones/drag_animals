@@ -24,18 +24,18 @@
     <div class="bs-example">
         <nav class="navbar navbar-expand-md navbar-light">
             <a href="video/portal-mao-amiga.mp4" class="navbar-brand video-popup">
-                <img class="logoMaoAmiga" src="{{asset('img/logo.png')}}" height="28" alt="Logo">
+                <img class="logoDragAnimals" src="{{asset('https://i.pinimg.com/originals/f1/9c/25/f19c257c83164280a040e30ebc6a13ea.png')}}" height="28" alt="Logo">
             </a>
             <button type="button" class="navbar-toggler custom-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <i class="fas fa-bars"></i>
             </button>
 
-            <div class="collapse navbar-collapse headerText" id="navbarCollapse">
+            <div class="collapse navbar-collapse headerText text-xl" id="navbarCollapse">
                 <div class="navbar-nav">
-                    <a href="#" class="nav-item nav-link active"><i class="fas fa-home"></i> Início</a> 
-                    <a href="#" class="nav-item nav-link"><i class="fas fa-info-circle"></i> Sobre</a>
-                    <a href="#" class="nav-item nav-link"><i class="fas fa-user"></i> Área do usuário</a>
-                    <a href="#" class="nav-item nav-link"><i class="fas fa-trophy"></i> Rankings</a>
+                    <a href="#" class="nav-item nav-link text-xl active"><i class="fas fa-home"></i> Início</a> 
+                    <a href="#" class="nav-item nav-link text-xl"><i class="fas fa-info-circle"></i> Sobre</a>
+                    <a href="#" class="nav-item nav-link text-xl"><i class="fas fa-user"></i> Área do usuário</a>
+                    <a href="#" class="nav-item nav-link text-xl"><i class="fas fa-trophy"></i> Rankings</a>
                 </div>
             
                 <div class="navbar-nav ml-auto dropdown" style="font-size: 1em">
