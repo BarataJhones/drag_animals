@@ -2,7 +2,7 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <img class="logoDragAnimals" src="{{asset('https://www.pngkit.com/png/full/392-3929588_kawaii-cute-edit-editing-overlay-png-dog-draw.png')}}" width="120" alt="Logo">
             </a>
         </x-slot>
 
@@ -11,20 +11,31 @@
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
+ 
         <form method="POST" action="{{ route('login') }}">
             @csrf
-
+            <span class="text-center text-xl flex">
+                <a href="/">
+                    <img src="{{asset('https://icons-for-free.com/iconfiles/png/512/arrow+left+chevron+chevronleft+left+left+icon+icon-1320185731545502691.png')}}" width="25"  alt="">
+                </a>
+                <p class="text-center text-xl w-4/5">Login</p>
+            </span>
+            <h2 class="mb-4 mt-2 text-sm text-center">
+                Novo usuário? 
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+                    {{ __('Cadastre-se') }}
+                </a>
+            </h2>
             <!-- Email Address -->
             <div>
-                <x-label for="email" :value="__('Email')" />
+                <x-label for="email" :value="__('E-mail')" />
 
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <!-- Password -->
             <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+                <x-label for="password" :value="__('Senha')" />
 
                 <x-input id="password" class="block mt-1 w-full"
                                 type="password"
@@ -43,12 +54,12 @@
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
+                        {{ __('Esqueceu sua senha?') }}
                     </a>
                 @endif
 
                 <x-button class="ml-3">
-                    {{ __('Log in') }}
+                    {{ __('Entrar') }}
                 </x-button>
             </div>
         </form>

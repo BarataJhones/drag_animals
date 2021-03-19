@@ -36,16 +36,24 @@ class RegisteredUserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|confirmed|min:8',
+            'birthday' => 'required|date',
+            'gender' => 'required|string|max:255',
+            'institution' => 'nullable|string|max:255',
+            'grade' => 'nullable|string|max:255',
         ]);
 
         Auth::login($user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'birthday' => $request->birthday,
+            'gender' => $request->gender,
+            'institution' => $request->institution,
+            'grade' => $request->grade,
         ]));
 
         event(new Registered($user));
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect('/');
     }
 }
