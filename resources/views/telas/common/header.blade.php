@@ -23,8 +23,8 @@
 <body>
     <div class="bs-example">
         <nav class="navbar navbar-expand-md navbar-light">
-            <a href="video/portal-mao-amiga.mp4" class="navbar-brand video-popup">
-                <img class="logoMaoAmiga" src="{{asset('img/logo.png')}}" height="28" alt="Logo">
+            <a href="" class="navbar-brand">
+                <img class="" src="" height="28" alt="Logo">
             </a>
             <button type="button" class="navbar-toggler custom-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <i class="fas fa-bars"></i>
@@ -82,11 +82,6 @@
                 <div class="col-10 col-xl-10 col-lg-9 col-md-8 col-sm-10 col-xs-7">
                     <p class="header-frase">Aprenda os animais em inglês brincando!</p>
                 </div>
-
-                <a class="video-popup" href="video/o-portal-acessivel.mp4">
-                    <div class="col-2 col-xl-1 col-lg-1 col-md-1 col-sm-2 col-xs-2 icone-video"></div>
-                </a>
-
             </div>
         </div>
     </div>

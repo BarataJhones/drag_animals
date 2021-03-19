@@ -8,6 +8,15 @@
 </head>
 <body>
     @include ('telas.common.header')
-    <h1>título</h1>
+
+    @if (session('message'))
+    <div>
+        <h5>
+            {{ session('message') }}
+        </h5>
+    </div>
+    @endif
+    
+
 </body>
 </html>
