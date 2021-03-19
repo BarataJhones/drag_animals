@@ -10,6 +10,7 @@
 </head>
 <body>
     @include ('telas.common.header')
+
     <article class="container" style="margin-top: 5em">
         <section class="row justify-content-center d-block">
             <section>

@@ -23,12 +23,11 @@
 <body>
     <div class="bs-example">
         <nav class="navbar navbar-expand-md navbar-light">
+        
             {{-- <a href="video/portal-mao-amiga.mp4" class="navbar-brand video-popup">
                 <img class="logoDragAnimals" src="{{asset('https://www.pngkit.com/png/full/392-3929588_kawaii-cute-edit-editing-overlay-png-dog-draw.png')}}" height="28" alt="Logo">
             </a> --}}
-            <a href="" class="navbar-brand">
-                <img class="" src="" height="28" alt="Logo">
-            </a>
+            
             <button type="button" class="navbar-toggler custom-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <i class="fas fa-bars"></i>
             </button>
@@ -79,6 +78,7 @@
             
             </div>
         </nav>
+
     </div>
 </body>
 
