@@ -1,21 +1,18 @@
 .bs-example {
     padding-top: 1em;
-    background-color: #00AEEF
+    background-color: rgb(103, 168, 248);
 }
 
-.headerText a {
-    font-size: 0.9em;
+.headerText{
+    font-size: 1.3em;
     color: white !important;
 }
 
 .header-frase {
-    color: white;
+    color: rgb(46, 148, 243);
     font-family: 'Montserrat Alternates', sans-serif;
     font-weight: bold;
-    font-style: italic;
     text-align: center;
-    margin-top: 1em;
-    padding-bottom: 1.5em;
 }
 
 .navbar-toggler{background-color: white !important;}

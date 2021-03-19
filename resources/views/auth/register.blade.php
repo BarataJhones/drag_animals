@@ -2,13 +2,19 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <img src="{{asset('https://www.pngkit.com/png/full/392-3929588_kawaii-cute-edit-editing-overlay-png-dog-draw.png')}}" width="120" alt="Logo">
             </a>
         </x-slot>
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
+        
+        <span class="text-center text-xl flex mb-6 mt-2">
+            <a href="/login">
+                <img src="{{asset('https://icons-for-free.com/iconfiles/png/512/arrow+left+chevron+chevronleft+left+left+icon+icon-1320185731545502691.png')}}" width="25"  alt="">
+            </a>
+            <p class="text-center text-xl w-5/6">Cadastro</p>
+        </span>
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
