@@ -1,0 +1,29 @@
+.section{margin-top: 2em;}
+
+.botaoComeçar{
+    margin-bottom: 1em;
+    width: 5.5em; height: auto;
+    font-size: 2em;
+    color:white;
+    border-radius: 50px;
+    background-color: #8de2a1;
+}
+
+.area{
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+.quadro {
+    width: 10.5em;
+    height: 14em;
+    padding: 10px;
+    border: 3px solid #aaaaaa;
+    border-radius: 10%;
+  }
+
+  img{
+    width: 9em;
+    height: 9em;
+    object-fit: cover;
+  }

@@ -32,5 +32,14 @@
         </section>
     </article>
 
+    @if (session('message'))
+    <div>
+        <h5>
+            {{ session('message') }}
+        </h5>
+    </div>
+    @endif
+    
+
 </body>
 </html>

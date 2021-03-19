@@ -18,7 +18,6 @@ class Animal extends Model
         'class',
         'order',
         'habitat',
-        'aulaVideo',
         'brazilian',
         //'audio'
     ];
