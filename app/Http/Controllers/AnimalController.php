@@ -33,7 +33,18 @@ class AnimalController extends Controller
             $data['image'] = $image;
         }
 
-        $aula_id = Animal::create($data);
+        //Audio
+        
+
+        if ($request->audio->isValid()) {
+
+            $audio = $request->audio->store('animalsData.audio');
+            $data['audio'] = $audio;
+        }
+
+        //dd($data['audio']);
+
+        $aula_id = Animal::create($data); //Variável $aula_id Caso precisa usar o id da aula para outra coisa nessa função
 
         return redirect()
             ->route('return.index')

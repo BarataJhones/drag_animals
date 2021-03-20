@@ -25,7 +25,12 @@ class StoreUpdateAnimal extends FormRequest
     {
         return [
             'name' => 'required|min:3|max:20',
-            'image' => ['required', 'image']
+            'image' => ['required', 'image'],
+            'audio' =>'required|mimes:mpeg,mp3',
+            'order' => 'required|min:3|max:20',
+            'class' => 'required|min:3|max:20',
+            'habitat' => 'required|min:3|max:20',
+            'brazilian' => 'required|min:3|max:20',
         ];
     }
 }

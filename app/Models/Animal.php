@@ -15,11 +15,11 @@ class Animal extends Model
         'name',
         'user_id',
         'image',
-        'class',
+        'audio',
         'order',
+        'class',
         'habitat',
-        'brazilian',
-        //'audio'
+        'brazilian'
     ];
 
     public function user()

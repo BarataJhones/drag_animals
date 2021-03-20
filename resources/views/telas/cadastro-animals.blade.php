@@ -9,15 +9,39 @@
 <body>
     @include ('telas.common.header')
 
+    
+
+    
+    <section class="container" style="margin-top: 2em">
+
+        <!-- Validações do fomulário -->
+        @if ($errors->any())
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>
+                    {{ $error }}
+                </li>
+                @endforeach
+            </ul>
+        @endif
+        <!-- -->
+
+        Acesso o site <b>https://soundoftext.com/</b>, escreva o nome do animal em inglês, escolha a lingúa (recomendamos English (United States),
+        e depois clique em <b>play</b> para baixar o áudio: <br>
+        
+        
     <form action="{{ route ('animals.register') }}" method="post" enctype="multipart/form-data">
         @csrf
 
-    <section class="container" style="margin-top: 2em">
+        
         <label for="">Nome do animal em <b>inglês</b></label> <br>
         <input type="text" name="name" id=""><br>
         
         <label for="">Imagem</label> <br>
         <input type="file" name="image" id=""> <br>
+
+        <label for="">Som da palavra em <b>inglês</b></label> <br>
+        <input type="file" name="audio" id=""> <br>
 
         <label for="">Classe</label> <br>
         <select name="class" class="form-select" aria-label="Default select example" id="">

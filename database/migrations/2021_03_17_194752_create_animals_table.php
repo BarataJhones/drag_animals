@@ -18,11 +18,11 @@ class CreateAnimalsTable extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('name', 20);
             $table->string('image');
+            $table->string('audio');
             $table->string('class');
             $table->string('order');
             $table->string('habitat');
             $table->string('brazilian');
-            //$table->string('audio');
             $table->timestamps();
         });
     }

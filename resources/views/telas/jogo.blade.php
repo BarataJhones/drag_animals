@@ -38,8 +38,12 @@
                 <div class="col " style="margin-bottom: 1em">
                     <div class="quadro text-center" id="quadro_{{ $quadro->id }}" ondrop="drop(event)"
                         ondragover="allowDrop(event)">
-                        <button type="button" class="btn btn-primary"
-                            style="margin-bottom: 1em">{{ $quadro->name }}</button>
+
+                        <button type="button" value="PLAY" onclick="play('audio_{{ $quadro->id }}')" class="btn btn-primary"
+                            style="margin-bottom: 1em">{{ $quadro->name }}
+                        </button>
+                        <audio id="audio_{{ $quadro->id }}" src="{{ url("storage/$quadro->audio") }}"></audio>
+
                     </div> <br>
                 </div>
             @endforeach
