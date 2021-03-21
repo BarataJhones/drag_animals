@@ -1,8 +1,6 @@
 @include ('telas.common.header')
 
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery-1.12.4.js"></script>
-<script src="js/jquery-ui.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <link rel="stylesheet" href="{{asset('css/jogo.css')}}">
 
@@ -16,40 +14,46 @@
                 seu quadro correto.
             </h3> <br>
 
-            <button type="button" class="btn botaoComeçar" style="">
+            <button type="button" class="btn botaoComeçar" data-toggle="collapse" data-target="#collapseExample"
+                aria-controls="collapseExample">
                 Começar!
             </button>
-
-        </div>
-        <div class="row area">
-
-            @foreach ($animals as $animal)
-                <div class="col" style="background-color: #eefdff; padding: 1em">
-                    <img id="imagem_{{ $animal->id }}" src="{{ url("storage/$animal->image") }}" draggable="true"
-                        ondragstart="drag(event)">
-                </div>
-            @endforeach
-
         </div>
 
-        <div class="row area ">
+        <div class="collapse" id="collapseExample">
 
-            @foreach ($quadros as $quadro)
-                <div class="col " style="margin-bottom: 1em">
-                    <div class="quadro text-center" id="quadro_{{ $quadro->id }}" ondrop="drop(event)"
-                        ondragover="allowDrop(event)">
+            
+            <span id="minutes"></span>:<span id="seconds"></span>
 
-                        <button type="button" value="PLAY" onclick="play('audio_{{ $quadro->id }}')" class="btn btn-primary"
-                            style="margin-bottom: 1em">{{ $quadro->name }}
-                        </button>
-                        <audio id="audio_{{ $quadro->id }}" src="{{ url("storage/$quadro->audio") }}"></audio>
+            <div class="container text-center">
+                <p id="mensagem"></p>
+            </div>
 
-                    </div> <br>
-                </div>
-            @endforeach
+            <div class="row area">
+                @foreach ($animals as $animal)
+                    <div class="col" style="background-color: #eefdff; padding: 1em">
+                        <img id="imagem_{{ $animal->id }}" src="{{ url("storage/$animal->image") }}" draggable="true" ondragstart="drag(event)">
+                    </div>
+                @endforeach
 
+            </div>
+
+            <div class="row area ">
+                @foreach ($quadros as $quadro)
+                    <div class="col " style="margin-bottom: 1em">
+                        <div class="quadro text-center" id="quadro_{{ $quadro->id }}" ondrop="drop(event)"
+                            ondragover="allowDrop(event)">
+
+                            <button type="button" value="PLAY" onclick="play('audio_{{ $quadro->id }}')"
+                                class="btn btn-primary" style="margin-bottom: 1em">{{ $quadro->name }}
+                            </button>
+                            <audio id="audio_{{ $quadro->id }}" src="{{ url("storage/$quadro->audio") }}"></audio>
+
+                        </div> <br>
+                    </div>
+                @endforeach
+            </div>
         </div>
-
     </body>
 
 </section>

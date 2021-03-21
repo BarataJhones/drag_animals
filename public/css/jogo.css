@@ -27,3 +27,8 @@
     height: 9em;
     object-fit: cover;
   }
+
+  #mensagem{
+    font-size: 2em;
+    color: #ffc14f;
+  }

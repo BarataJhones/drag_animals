@@ -26,7 +26,7 @@
             <section class="d-flex justify-content-center mt-5">
                 <section class="d-flex justify-content-between w-50">
                     <a class="btn btn-selection" href="">Sobre</a>
-                    <a class="btn btn-selection" href="{{ route('animals.jogo') }}">Jogar</a>
+                    <a class="btn btn-selection" href="{{ route('animals.selecao') }}">Jogar</a>
                     <a class="btn btn-selection" href="">Pontuações</a>
                 </section>
             </section>

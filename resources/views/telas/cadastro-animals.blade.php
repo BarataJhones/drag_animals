@@ -26,8 +26,8 @@
         @endif
         <!-- -->
 
-        Acesso o site <b>https://soundoftext.com/</b>, escreva o nome do animal em inglês, escolha a lingúa (recomendamos English (United States),
-        e depois clique em <b>play</b> para baixar o áudio: <br>
+        Acesse o site <b>https://soundoftext.com/</b>, escreva o nome do animal em inglês, escolha a lingúa (recomendamos English (United States),
+        clique em <b>submit</b> e depois clique em <b>download</b> para baixar o áudio: <br>
         
         
     <form action="{{ route ('animals.register') }}" method="post" enctype="multipart/form-data">

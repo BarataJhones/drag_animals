@@ -18,6 +18,11 @@ class AnimalController extends Controller
         return view('telas.cadastro-animals');
     }
 
+    public function selecaoJogo()
+    {
+        return view('telas.selecaoJogo');
+    }
+
     public function store(StoreUpdateAnimal $request)
     {
         $data = $request->all();
@@ -60,12 +65,123 @@ class AnimalController extends Controller
         return view('telas.index', compact('animals'));
     }
 
-    public function jogo()
-    {
-        $animals = Animal::inRandomOrder()->get();
 
-        $quadros = Animal::inRandomOrder()->get();
+    //Requisições dos modos de jogo
+    public function jogoClassMamifero()
+    {
+        $animals = Animal::where('class', "Mamífero")->inRandomOrder()->paginate(3);
+
+        $quadros = $animals->shuffle();
 
         return view('telas.jogo', compact('animals', 'quadros'));
     }
+
+    public function jogoClassAve()
+    {
+        $animals = Animal::where('class', "Ave")->inRandomOrder()->paginate(3);
+
+        $quadros = $animals->shuffle();
+
+        return view('telas.jogo', compact('animals', 'quadros'));
+    }
+
+    public function jogoClassInseto()
+    {
+        $animals = Animal::where('class', "Inseto")->inRandomOrder()->paginate(3);
+
+        $quadros = $animals->shuffle();
+
+        return view('telas.jogo', compact('animals', 'quadros'));
+    }
+
+    public function jogoClassPeixe()
+    {
+        $animals = Animal::where('class', "Peixe")->inRandomOrder()->paginate(3);
+
+        $quadros = $animals->shuffle();
+
+        return view('telas.jogo', compact('animals', 'quadros'));
+    }
+
+    public function jogoClassReptil()
+    {
+        $animals = Animal::where('class', "Réptil")->inRandomOrder()->paginate(3);
+
+        $quadros = $animals->shuffle();
+
+        return view('telas.jogo', compact('animals', 'quadros'));
+    }
+
+    public function jogoOrderCarnivoro()
+    {
+        $animals = Animal::where('order', "Carnívoro")->inRandomOrder()->paginate(3);
+
+        $quadros = $animals->shuffle();
+
+        return view('telas.jogo', compact('animals', 'quadros'));
+    }
+
+    public function jogoOrderHerbivoro()
+    {
+        $animals = Animal::where('order', "Herbívoro")->inRandomOrder()->paginate(3);
+
+        $quadros = $animals->shuffle();
+
+        return view('telas.jogo', compact('animals', 'quadros'));
+    }
+
+    public function jogoOrderOnivoro()
+    {
+        $animals = Animal::where('order', "Onívoro")->inRandomOrder()->paginate(3);
+
+        $quadros = $animals->shuffle();
+
+        return view('telas.jogo', compact('animals', 'quadros'));
+    }
+
+    public function jogoHabitatAereo()
+    {
+        $animals = Animal::where('habitat', "Aéreo")->inRandomOrder()->paginate(3);
+
+        $quadros = $animals->shuffle();
+
+        return view('telas.jogo', compact('animals', 'quadros'));
+    }
+
+    public function jogoHabitatAquatico()
+    {
+        $animals = Animal::where('habitat', "Aquático")->inRandomOrder()->paginate(3);
+
+        $quadros = $animals->shuffle();
+
+        return view('telas.jogo', compact('animals', 'quadros'));
+    }
+
+    public function jogoHabitatTerrestre()
+    {
+        $animals = Animal::where('habitat', "Terrestre")->inRandomOrder()->paginate(3);
+
+        $quadros = $animals->shuffle();
+
+        return view('telas.jogo', compact('animals', 'quadros'));
+    }
+
+    public function jogoBrasileiro()
+    {
+        $animals = Animal::where('brazilian', "Sim")->inRandomOrder()->paginate(3);
+
+        $quadros = $animals->shuffle();
+
+        return view('telas.jogo', compact('animals', 'quadros'));
+    }
+
+    public function jogoAleatorio()
+    {
+        $animals = Animal::inRandomOrder()->paginate(3);
+
+        $quadros = $animals->shuffle();
+
+        return view('telas.jogo', compact('animals', 'quadros'));
+    }
+  
 }
