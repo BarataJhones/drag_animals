@@ -7,6 +7,8 @@
 <section class="container section">
 
     <body>
+
+        <!--Área do texto inicial-->
         <div class="text-center">
             <h3>
                 Agora é a hora de mostrar que você sabe os nomes dos animais em inglês! <br>
@@ -14,30 +16,31 @@
                 seu quadro correto.
             </h3> <br>
 
+            <!--Botão collapse-->
             <button type="button" class="btn botaoComeçar" data-toggle="collapse" data-target="#collapseExample"
-                aria-controls="collapseExample">
+                aria-controls="collapseExample" id="playButton">
                 Começar!
             </button>
         </div>
 
         <div class="collapse" id="collapseExample">
 
-            
-            <span id="minutes"></span>:<span id="seconds"></span>
-
-            <div class="container text-center">
-                <p id="mensagem"></p>
+            <!--Timer-->
+            <div class="text-center">
+                <span id="display" class="timer">00:00:00</span>
             </div>
 
+            <!--Div que exibe as imagens dos bichos-->
             <div class="row area">
                 @foreach ($animals as $animal)
                     <div class="col" style="background-color: #eefdff; padding: 1em">
                         <img id="imagem_{{ $animal->id }}" src="{{ url("storage/$animal->image") }}" draggable="true" ondragstart="drag(event)">
                     </div>
                 @endforeach
-
             </div>
+            <!-- -->
 
+            <!--Div que exibe os quadros respostas-->
             <div class="row area ">
                 @foreach ($quadros as $quadro)
                     <div class="col " style="margin-bottom: 1em">
@@ -53,9 +56,30 @@
                     </div>
                 @endforeach
             </div>
-        </div>
-    </body>
+            <!-- -->
 
+        </div>
+
+        <!--Essa div exibe a mensagem após completar o desafio. Se o user estiver logado, aparece o botão com a opção de salvar a pontuação.-->
+        <div class="text-center" style="font-size: 2em" id="mensagem" hidden>
+            <p class="mensagem">
+                Congratulations! Você conseguiu completar o desafio!
+            </p>
+            Sua pontuação foi: <br>
+
+            @if ((Auth::id()!=null))
+                <button type="button" class="btn botaoComeçar" style="font-size: 1em">
+                    Salvar
+                </button>
+            @else
+                Faça Login para salvar sua pontuação <br>
+                <a href="{{ route('login') }}" class="">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+            @endif
+        </div>
+        
+    </body>
 </section>
 
 <script type="text/javascript" src="{{asset('js/drag_drop.js')}}"></script>

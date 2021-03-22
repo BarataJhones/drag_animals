@@ -13,14 +13,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::middleware(['auth'])->group(function (){
+    Route::get('/animals-rigister', [AnimalController::class, 'animalsRegister'])->name('animals.viewRegister');
+    Route::post('/animals-rigister', [AnimalController::class, 'store'])->name('animals.register'); 
+});
 
 Route::get('/home', [AnimalController::class, 'index'])->name('return.index');
-
 Route::get('/selecao-jogo', [AnimalController::class, 'selecaoJogo'])->name('animals.selecao');
-
-Route::get('/animals-rigister', [AnimalController::class, 'animalsRegister'])->name('animals.viewRegister');
-
-Route::post('/animals-rigister', [AnimalController::class, 'store'])->name('animals.register'); 
 
 //Rota dos jogos
 Route::get('/jogo/class/ave', [AnimalController::class, 'jogoClassAve'])->name('jogo.class_ave');
