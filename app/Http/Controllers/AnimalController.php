@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUpdateAnimal;
+use App\Http\Requests\StoreUpdateRanking;
 use App\Models\Animal;
+use App\Models\Ranking;
 use Illuminate\Http\Request;
 
 class AnimalController extends Controller
@@ -21,6 +23,12 @@ class AnimalController extends Controller
     public function selecaoJogo()
     {
         return view('telas.selecaoJogo');
+    }
+
+    public function ranking()
+    {
+        $rankings = Ranking::orderBy('time')->get();
+        return view('telas.ranking', compact('rankings'));
     }
 
     public function store(StoreUpdateAnimal $request)
@@ -56,6 +64,21 @@ class AnimalController extends Controller
             ->with('message', 'Animal cadastrado com sucesso');
     }
 
+    public function storeRanking(StoreUpdateRanking $request)
+    {
+        $data = $request->all();
+
+        //Pegar id do usuário
+        $user = auth()->user();
+        $data['user_id'] = $user->id;
+
+        Ranking::create($data);
+
+        return redirect()
+            ->route('return.index')
+            ->with('message', 'Pontuação salva');
+    }
+
     public function listAnimals()
     {
         $animals = Animal::orderBy('id', 'DESC')->get();
@@ -67,22 +90,37 @@ class AnimalController extends Controller
 
 
     //Requisições dos modos de jogo
-    public function jogoClassMamifero()
-    {
-        $animals = Animal::where('class', "Mamífero")->inRandomOrder()->paginate(3);
-
-        $quadros = $animals->shuffle();
-
-        return view('telas.jogo', compact('animals', 'quadros'));
-    }
-
     public function jogoClassAve()
     {
         $animals = Animal::where('class', "Ave")->inRandomOrder()->paginate(3);
 
         $quadros = $animals->shuffle();
 
-        return view('telas.jogo', compact('animals', 'quadros'));
+        $gameType = "Ave";
+
+        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
+    }
+
+    public function jogoClassAnfibio()
+    {
+        $animals = Animal::where('class', "Anfíbio")->inRandomOrder()->paginate(3);
+
+        $quadros = $animals->shuffle();
+
+        $gameType = "Anfíbio";
+
+        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
+    }
+
+    public function jogoClassMamifero()
+    {
+        $animals = Animal::where('class', "Mamífero")->inRandomOrder()->paginate(3);
+
+        $quadros = $animals->shuffle();
+
+        $gameType = "Mamífero";
+
+        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
     }
 
     public function jogoClassInseto()
@@ -91,7 +129,9 @@ class AnimalController extends Controller
 
         $quadros = $animals->shuffle();
 
-        return view('telas.jogo', compact('animals', 'quadros'));
+        $gameType = "Inseto";
+
+        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
     }
 
     public function jogoClassPeixe()
@@ -100,16 +140,20 @@ class AnimalController extends Controller
 
         $quadros = $animals->shuffle();
 
-        return view('telas.jogo', compact('animals', 'quadros'));
+        $gameType = "Peixe";
+
+        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
     }
 
     public function jogoClassReptil()
     {
-        $animals = Animal::where('class', "Réptil")->inRandomOrder()->paginate(3);
+        $animals = Animal::where('class', "Réptil/Anfíbio")->inRandomOrder()->paginate(3);
 
         $quadros = $animals->shuffle();
 
-        return view('telas.jogo', compact('animals', 'quadros'));
+        $gameType = "Réptil/Anfíbio";
+
+        return view('telas.jogo', compact('animals', 'quadros', 'gameType'));
     }
 
     public function jogoOrderCarnivoro()
@@ -118,7 +162,9 @@ class AnimalController extends Controller
 
         $quadros = $animals->shuffle();
 
-        return view('telas.jogo', compact('animals', 'quadros'));
+        $gameType = "Carnívoro";
+
+        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
     }
 
     public function jogoOrderHerbivoro()
@@ -127,7 +173,9 @@ class AnimalController extends Controller
 
         $quadros = $animals->shuffle();
 
-        return view('telas.jogo', compact('animals', 'quadros'));
+        $gameType = "Herbívoro";
+
+        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
     }
 
     public function jogoOrderOnivoro()
@@ -136,7 +184,9 @@ class AnimalController extends Controller
 
         $quadros = $animals->shuffle();
 
-        return view('telas.jogo', compact('animals', 'quadros'));
+        $gameType = "Onívoro";
+
+        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
     }
 
     public function jogoHabitatAereo()
@@ -145,7 +195,9 @@ class AnimalController extends Controller
 
         $quadros = $animals->shuffle();
 
-        return view('telas.jogo', compact('animals', 'quadros'));
+        $gameType = "Aéreo";
+
+        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
     }
 
     public function jogoHabitatAquatico()
@@ -154,7 +206,9 @@ class AnimalController extends Controller
 
         $quadros = $animals->shuffle();
 
-        return view('telas.jogo', compact('animals', 'quadros'));
+        $gameType = "Aquático";
+
+        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
     }
 
     public function jogoHabitatTerrestre()
@@ -163,7 +217,9 @@ class AnimalController extends Controller
 
         $quadros = $animals->shuffle();
 
-        return view('telas.jogo', compact('animals', 'quadros'));
+        $gameType = "Terrestre";
+
+        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
     }
 
     public function jogoBrasileiro()
@@ -172,7 +228,9 @@ class AnimalController extends Controller
 
         $quadros = $animals->shuffle();
 
-        return view('telas.jogo', compact('animals', 'quadros'));
+        $gameType = "Brasileiros";
+
+        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
     }
 
     public function jogoAleatorio()
@@ -181,7 +239,9 @@ class AnimalController extends Controller
 
         $quadros = $animals->shuffle();
 
-        return view('telas.jogo', compact('animals', 'quadros'));
+        $gameType = "Aleatório";
+
+        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
     }
   
 }

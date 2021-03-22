@@ -16,13 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth'])->group(function (){
     Route::get('/animals-rigister', [AnimalController::class, 'animalsRegister'])->name('animals.viewRegister');
     Route::post('/animals-rigister', [AnimalController::class, 'store'])->name('animals.register'); 
+    Route::post('/jogo/ranking-register', [AnimalController::class, 'storeRanking'])->name('ranking.register'); 
 });
 
 Route::get('/home', [AnimalController::class, 'index'])->name('return.index');
 Route::get('/selecao-jogo', [AnimalController::class, 'selecaoJogo'])->name('animals.selecao');
+Route::get('/ranking', [AnimalController::class, 'ranking'])->name('rankin.main');
 
 //Rota dos jogos
 Route::get('/jogo/class/ave', [AnimalController::class, 'jogoClassAve'])->name('jogo.class_ave');
+Route::get('/jogo/class/anfibio', [AnimalController::class, 'jogoClassAnfibio'])->name('jogo.class_anfibio');
 Route::get('/jogo/class/mamifero', [AnimalController::class, 'jogoClassMamifero'])->name('jogo.class_mamifero');
 Route::get('/jogo/class/inseto', [AnimalController::class, 'jogoClassInseto'])->name('jogo.class_inseto'); 
 Route::get('/jogo/class/peixe', [AnimalController::class, 'jogoClassPeixe'])->name('jogo.class_peixe');

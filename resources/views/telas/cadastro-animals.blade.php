@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+<title>Drag Animals - Cadastro de animais</title>
+<link rel="shortcut icon"
+    href="https://www.pngkit.com/png/full/392-3929588_kawaii-cute-edit-editing-overlay-png-dog-draw.png"
+    type="image/x-icon">
+
 <body>
     @include ('telas.common.header')
 
-    
-
-    
     <section class="container" style="margin-top: 2em">
 
         <!-- Validações do fomulário -->
@@ -49,7 +43,7 @@
             <option value="Inseto">Inseto</option>
             <option value="Mamífero">Mamífero</option>
             <option value="Peixe">Peixe</option>
-            <option value="Réptil">Réptil</option>
+            <option value="Réptil/Anfíbio">Réptil/Anfíbio</option>
         </select><br><br>
 
         <label for="">Ordem</label> <br>
@@ -82,4 +76,3 @@
 
     </section>
 </body>
-</html>

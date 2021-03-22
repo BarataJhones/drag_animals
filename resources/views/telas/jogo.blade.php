@@ -65,12 +65,22 @@
             <p class="mensagem">
                 Congratulations! Você conseguiu completar o desafio!
             </p>
-            Sua pontuação foi: <br>
+            Sua pontuação foi: <span id="timerResult"></span><br>
 
+            <!--Quando o user estiver logado-->
             @if ((Auth::id()!=null))
-                <button type="button" class="btn botaoComeçar" style="font-size: 1em">
-                    Salvar
-                </button>
+
+                <form action="{{ route ('ranking.register') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <input type="text" name="game_type" value="{{$gameType}}" hidden>
+                    <input type="text" id="timerResultForm" name="time" value="" hidden>
+
+                    <button type="submit" class="btn botaoComeçar" style="font-size: 1em">
+                        Salvar
+                    </button>
+                </form>
+
+        <!--Não logado-->
             @else
                 Faça Login para salvar sua pontuação <br>
                 <a href="{{ route('login') }}" class="">

@@ -31,6 +31,8 @@ let timerInterval;
 
 function print(txt) {
     document.getElementById("display").innerHTML = txt;
+    document.getElementById("timerResult").innerHTML = txt;
+    document.getElementById('timerResultForm').value = innerHTML = txt;
 }
 
 // Create "start" function

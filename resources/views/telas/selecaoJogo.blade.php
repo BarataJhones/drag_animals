@@ -23,7 +23,7 @@
                 <a class="subClasse" href="{{ route('jogo.class_mamifero') }}"><i class="fas fa-dog"></i> Mamíferos</a> <br>
                 <a class="subClasse" href="{{ route('jogo.class_inseto') }}"><i class="fas fa-bug"></i> Insetos</a> <br>
                 <a class="subClasse" href="{{ route('jogo.class_peixe') }}"><i class="fas fa-fish"></i> Peixes</a> <br>
-                <a class="subClasse" href="{{ route('jogo.class_reptil') }}"><i class="fab fa-d-and-d"></i> Reptéis</a>
+                <a class="subClasse" href="{{ route('jogo.class_reptil') }}"><i class="fab fa-d-and-d"></i>/<i class="fas fa-frog"></i> Reptéis e anfíbios</a>
             </div>
         </div>
 
