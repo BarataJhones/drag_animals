@@ -42,11 +42,12 @@ class AnimalController extends Controller
 
     public function listAnimals()
     {
-        $animals = Animal::orderBy('id', 'DESC')->get();
+        $user = auth()->user();
+        $animals = Animal::where('user_id', $user)->orderBy('id', 'DESC')->paginate();
 
         //dd($animals);
 
-        return view('telas.index', compact('animals'));
+        return view('telas.index', compact('animals', 'user'));
     }
 
     public function jogo()

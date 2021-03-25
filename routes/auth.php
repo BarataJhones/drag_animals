@@ -62,3 +62,11 @@ Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store']
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->middleware('auth')
                 ->name('logout');
+
+Route::get('/edit-user', [RegisteredUserController::class, 'editUser'])
+                ->middleware('auth')
+                ->name('edit-user');
+          
+Route::post('/rota/update', [RegisteredUserController::class, 'userUpdate'])
+                ->name('user.update');
+
