@@ -47,16 +47,19 @@
                             ?>
                 
                             <img src="{{ url("storage/$avatar") }}" class="userAvatar">
-                            Bem vindo, @php echo $primeiroNome; @endphp
+                            Bem vindo(a), @php echo $primeiroNome; @endphp
                 
                         </a>
                         <div class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
                 
                             <a class="dropdown-item"
-                                href="#">
+                                href="{{ route('dashboard') }}">
                                 <i class="fas fa-user"></i> Área do usuário
                             </a>
-                
+                            <a class="dropdown-item"
+                                href="{{ route('edit-user') }}">
+                                <i class="fas fa-edit"></i> Editar usuaŕio
+                            </a>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <a class="headerText dropdown-item" style="cursor: pointer" :href="route('logout')"

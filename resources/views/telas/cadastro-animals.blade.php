@@ -13,29 +13,30 @@
     </div>
 
     <div class="container" style="margin-top: 2em">
-
-        <!-- Validações do fomulário -->
-        @if ($errors->any())
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>
-                    {{ $error }}
-                </li>
-                @endforeach
-            </ul>
-        @endif
-        <!-- -->
-
         <div class="py-2 text-center">
             <h5>
                 <strong>Instruções para envio do áudio:</strong> Acesse o site <a class="links" href="https://soundoftext.com/"><strong>Sound Of Text</strong></a>, escreva o nome do animal em inglês, escolha a lingúa (recomendamos English (United States),
-                clique em <strong>submit</strong> e depois clique em <b>download</b> para baixar o áudio:
+                clique em <strong>submit</strong> e depois clique em <b>download</b> para baixar o áudio.
             </h5>
         </div> 
         
         <div class="py-3 px-5 col">
             <form action="{{ route ('animals.register') }}" method="post" enctype="multipart/form-data">
                 @csrf
+
+                <div class="py-4">
+                    <!-- Validações do fomulário -->
+                    @if ($errors->any())
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>
+                                {{ $error }}
+                            </li>
+                            @endforeach
+                        </ul>
+                     @endif
+                    <!-- -->
+                </div>
         
                 <div class="pb-4">
                     <label for="nome">Nome do animal em <b>inglês</b></label> 
@@ -44,7 +45,7 @@
                 <div class="flex pb-4">
                     <div class="w-100 mr-2">
                         <label for="imagem">Imagem</label> 
-                        <input class="form-control outline-none shadow-none" id="imagem" type="file" name="image">
+                        <input class="form-control" id="imagem" type="file" name="image">
                     </div>
             
                     <div class="w-100 mrg-l">
