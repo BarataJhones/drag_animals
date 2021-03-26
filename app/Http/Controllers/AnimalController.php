@@ -27,7 +27,7 @@ class AnimalController extends Controller
 
     public function ranking()
     {
-        $rankings = Ranking::orderBy('time')->get();
+        $rankings = Ranking::orderBy('time')->paginate(10);
         return view('telas.ranking', compact('rankings'));
     }
 
@@ -75,175 +75,61 @@ class AnimalController extends Controller
         Ranking::create($data);
 
         return redirect()
-            ->route('return.index')
+            ->route('rankin.main')
             ->with('message', 'Pontuação salva');
     }
 
-    public function listAnimals()
+    public function dashboard()
     {
         $user = auth()->user();
-        $rankings = Ranking::orderBy('time')->get();
-        $animals = Animal::where('user_id', $user->id)->orderBy('id', 'DESC')->paginate();
+        $rankings = Ranking::where('user_id',$user->id)->orderBy('time')->get();
+        $animals = Animal::where('user_id', $user->id)->orderBy('id', 'DESC')->paginate(3);
 
         //dd($animals);
 
         return view('telas.dashboard', compact('user', 'rankings', 'animals'));
     }
 
-
-    //Requisições dos modos de jogo
-    public function jogoClassAve()
+    public function listAnimals()
     {
-        $animals = Animal::where('class', "Ave")->inRandomOrder()->paginate(3);
+        $animals = Animal::orderBy('id', 'DESC')->paginate(10);
 
-        $quadros = $animals->shuffle();
+        //dd($animals);
 
-        $gameType = "Ave";
-
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
+        return view('telas.listaAnimals', compact('animals'));
     }
 
-    public function jogoClassAnfibio()
+    public function searchAnimal(Request $request)
     {
-        $animals = Animal::where('class', "Anfíbio")->inRandomOrder()->paginate(3);
+        $filters = $request->all();
 
-        $quadros = $animals->shuffle();
+        $animals = Animal::where('name', 'LIKE', "%{$request->search}%")
+                        ->orWhere('class', 'LIKE', "%{$request->search}%")
+                        ->orWhere('order', 'LIKE', "%{$request->search}%")
+                        ->orWhere('habitat', 'LIKE', "%{$request->search}%")
+                        ->orWhereHas('user', function($q) use($request){
+                            $q->where('name', 'LIKE', "%{$request->search}%");
+                        })->paginate(9);
 
-        $gameType = "Anfíbio";
-
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
+        return view('telas.listaAnimals', compact('animals', 'filters'))
+                ->with('message', 'Resultado da busca:');
     }
 
-    public function jogoClassMamifero()
+    public function searchRanking(Request $request)
     {
-        $animals = Animal::where('class', "Mamífero")->inRandomOrder()->paginate(3);
+        $filters = $request->all();
 
-        $quadros = $animals->shuffle();
+        $rankings = Ranking::where('game_type', 'LIKE', "%{$request->search}%")
 
-        $gameType = "Mamífero";
+                        ->orWhereHas('user', function($q) use($request){
+                            $q->where('name', 'LIKE', "%{$request->search}%");
+                        })
+                        ->orWhereHas('user', function($q) use($request){
+                            $q->where('institution', 'LIKE', "%{$request->search}%");
+                        })
+                        ->paginate(10);
 
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
+        return view('telas.ranking', compact('rankings', 'filters'))
+                ->with('message', 'Resultado da busca:');
     }
-
-    public function jogoClassInseto()
-    {
-        $animals = Animal::where('class', "Inseto")->inRandomOrder()->paginate(3);
-
-        $quadros = $animals->shuffle();
-
-        $gameType = "Inseto";
-
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
-    }
-
-    public function jogoClassPeixe()
-    {
-        $animals = Animal::where('class', "Peixe")->inRandomOrder()->paginate(3);
-
-        $quadros = $animals->shuffle();
-
-        $gameType = "Peixe";
-
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
-    }
-
-    public function jogoClassReptil()
-    {
-        $animals = Animal::where('class', "Réptil/Anfíbio")->inRandomOrder()->paginate(3);
-
-        $quadros = $animals->shuffle();
-
-        $gameType = "Réptil/Anfíbio";
-
-        return view('telas.jogo', compact('animals', 'quadros', 'gameType'));
-    }
-
-    public function jogoOrderCarnivoro()
-    {
-        $animals = Animal::where('order', "Carnívoro")->inRandomOrder()->paginate(3);
-
-        $quadros = $animals->shuffle();
-
-        $gameType = "Carnívoro";
-
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
-    }
-
-    public function jogoOrderHerbivoro()
-    {
-        $animals = Animal::where('order', "Herbívoro")->inRandomOrder()->paginate(3);
-
-        $quadros = $animals->shuffle();
-
-        $gameType = "Herbívoro";
-
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
-    }
-
-    public function jogoOrderOnivoro()
-    {
-        $animals = Animal::where('order', "Onívoro")->inRandomOrder()->paginate(3);
-
-        $quadros = $animals->shuffle();
-
-        $gameType = "Onívoro";
-
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
-    }
-
-    public function jogoHabitatAereo()
-    {
-        $animals = Animal::where('habitat', "Aéreo")->inRandomOrder()->paginate(3);
-
-        $quadros = $animals->shuffle();
-
-        $gameType = "Aéreo";
-
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
-    }
-
-    public function jogoHabitatAquatico()
-    {
-        $animals = Animal::where('habitat', "Aquático")->inRandomOrder()->paginate(3);
-
-        $quadros = $animals->shuffle();
-
-        $gameType = "Aquático";
-
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
-    }
-
-    public function jogoHabitatTerrestre()
-    {
-        $animals = Animal::where('habitat', "Terrestre")->inRandomOrder()->paginate(3);
-
-        $quadros = $animals->shuffle();
-
-        $gameType = "Terrestre";
-
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
-    }
-
-    public function jogoBrasileiro()
-    {
-        $animals = Animal::where('brazilian', "Sim")->inRandomOrder()->paginate(3);
-
-        $quadros = $animals->shuffle();
-
-        $gameType = "Brasileiros";
-
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
-    }
-
-    public function jogoAleatorio()
-    {
-        $animals = Animal::inRandomOrder()->paginate(3);
-
-        $quadros = $animals->shuffle();
-
-        $gameType = "Aleatório";
-
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
-    }
-  
 }

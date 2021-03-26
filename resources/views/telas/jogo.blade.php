@@ -33,7 +33,7 @@
             <!--Div que exibe as imagens dos bichos-->
             <div class="row area">
                 @foreach ($animals as $animal)
-                    <div class="col" style="background-color: #eefdff; padding: 1em">
+                    <div class="col" style="background-color: #fff9ee; padding: 1em">
                         <img id="imagem_{{ $animal->id }}" src="{{ url("storage/$animal->image") }}" draggable="true" ondragstart="drag(event)">
                     </div>
                 @endforeach

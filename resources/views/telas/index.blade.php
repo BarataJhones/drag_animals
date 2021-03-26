@@ -9,6 +9,15 @@
     @include ('telas.common.header')
 
     <article class="container" style="margin-top: 5em">
+
+        @if (session('message'))
+            <div>
+                <h5>
+                    {{ session('message') }}
+                </h5><br> <br>
+            </div>
+        @endif
+
         <section class="row justify-content-center d-block">
             <section>
                 <h1 class="header-frase text-xl">DRAG ANIMALS</h1>
@@ -30,15 +39,6 @@
             </section>
         </section>
     </article>
-
-    @if (session('message'))
-    <div>
-        <h5>
-            {{ session('message') }}
-        </h5><br> <br>
-    </div>
-    @endif
-
 </body>
 
 </html>
