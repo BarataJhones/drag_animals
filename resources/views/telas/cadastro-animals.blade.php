@@ -1,23 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+<title>Drag Animals - Cadastro de animais</title>
+<link rel="shortcut icon"
+    href="https://www.pngkit.com/png/full/392-3929588_kawaii-cute-edit-editing-overlay-png-dog-draw.png"
+    type="image/x-icon">
+
 <body>
     @include ('telas.common.header')
 
+    <section class="container" style="margin-top: 2em">
+
+        <!-- Validações do fomulário -->
+        @if ($errors->any())
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>
+                    {{ $error }}
+                </li>
+                @endforeach
+            </ul>
+        @endif
+        <!-- -->
+
+        Acesse o site <b>https://soundoftext.com/</b>, escreva o nome do animal em inglês, escolha a lingúa (recomendamos English (United States),
+        clique em <b>submit</b> e depois clique em <b>download</b> para baixar o áudio: <br>
+        
+        
     <form action="{{ route ('animals.register') }}" method="post" enctype="multipart/form-data">
         @csrf
 
-    <section class="container" style="margin-top: 2em">
+        
         <label for="">Nome do animal em <b>inglês</b></label> <br>
         <input type="text" name="name" id=""><br>
         
         <label for="">Imagem</label> <br>
         <input type="file" name="image" id=""> <br>
+
+        <label for="">Som da palavra em <b>inglês</b></label> <br>
+        <input type="file" name="audio" id=""> <br>
 
         <label for="">Classe</label> <br>
         <select name="class" class="form-select" aria-label="Default select example" id="">
@@ -25,7 +43,7 @@
             <option value="Inseto">Inseto</option>
             <option value="Mamífero">Mamífero</option>
             <option value="Peixe">Peixe</option>
-            <option value="Réptil">Réptil</option>
+            <option value="Réptil/Anfíbio">Réptil/Anfíbio</option>
         </select><br><br>
 
         <label for="">Ordem</label> <br>
@@ -58,4 +76,3 @@
 
     </section>
 </body>
-</html>
