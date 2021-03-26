@@ -28,7 +28,7 @@
             <div class="col pt-5 px-2">
                 <div class="card py-3 px-3" style="border: 4px solid #fcd7a4; border-radius: 10px">
                     <div class="d-flex py-2 justify-content-center">
-                        <h1>Ranking de Jogadores</h1>
+                        <h1>Minhas pontuações</h1>
                     </div>
                     <div class="d-flex py-2 px-4 justify-content-center">
                         <table class="tabela fundo w-100 mb-2">
@@ -52,31 +52,36 @@
             <div class="col pt-5 px-2 pb-3">
                 <div class="w-100 pb-4">
                     <button class="button-orange btn btn-lg w-100" type="button" style="border-radius: 40px;">
-                        Registrar pontuação
+                        Jogar
                     </button>
                 </div>
                 <div class="card py-3 px-3" style="border: 4px solid #fcd7a4; border-radius: 10px">
                     <div class="d-flex py-2 justify-content-center">
                         <h1>Meus animais</h1>
                     </div>
-                    <div class="font-sans d-flex antialiased py-4 px-2 flex-wrap justify-content-center" style="background-color: rgb(252, 227, 191); border-radius: 10px">
-                        @foreach ( $animals as $animal)
-                            <section class="d-flex flex-column px-4 justify-content-center text-center">
-                                <div class="card justify-content-center d-block my-2" style="width: 12rem">
-                                    <img class="px-2 py-2" src="{{ asset('/storage/'.$animal->image) }}" width="120" alt="">
-                                    <div class="card-body">
-                                      <h5 style="margin-bottom: 0!important">
-                                        <strong>{{ $animal->name }}</strong>
-                                      </h5>
+                    <div style="background-color: rgb(252, 227, 191); border-radius: 10px">
+                        <div class="font-sans d-flex antialiased py-4 px-2 flex-wrap justify-content-center">
+                            @foreach ( $animals as $animal)
+                                <section class="d-flex flex-column px-4 justify-content-center text-center">
+                                    <div class="card justify-content-center d-block my-2" style="width: 12rem">
+                                        <img class="px-2 py-2" src="{{ asset('/storage/'.$animal->image) }}" width="120" alt="">
+                                        <div class="card-body">
+                                        <h5 style="margin-bottom: 0!important">
+                                            <strong>{{ $animal->name }}</strong>
+                                        </h5>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">{{ $animal->class }}</li>
+                                            <li class="list-group-item">{{ $animal->order }}</li>
+                                            <li class="list-group-item">{{ $animal->habitat }}</li>
+                                        </ul>
                                     </div>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">{{ $animal->class }}</li>
-                                        <li class="list-group-item">{{ $animal->order }}</li>
-                                        <li class="list-group-item">{{ $animal->habitat }}</li>
-                                      </ul>
-                                  </div>
-                            </section>
-                        @endforeach
+                                </section>
+                            @endforeach
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            {{ $animals->links() }}
+                        </div>
                     </div>
                     <div class="w-100 pt-4 pb-2">
                         <a class="btn button-orange btn-lg w-100" href="{{ route('animals.register') }}" style="border-radius: 40px">

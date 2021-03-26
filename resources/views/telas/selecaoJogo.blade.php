@@ -16,42 +16,47 @@
     </div> <br><br>
 
     <div class="row">
-        
-        <div class="col btnPrincipalMarge">
-            <a class="btn button-size button-orange btn-select px-2" href="" data-toggle="collapse" data-target="#class" aria-controls="class">Classe</a>
-            <div class="collapse" id="class">
-                <a class="subClasse" href="{{ route('jogo.class_ave') }}"><i class="fas fa-crow"></i> Aves</a> <br>
-                <a class="subClasse" href="{{ route('jogo.class_mamifero') }}"><i class="fas fa-dog"></i> Mamíferos</a> <br>
-                <a class="subClasse" href="{{ route('jogo.class_inseto') }}"><i class="fas fa-bug"></i> Insetos</a> <br>
-                <a class="subClasse" href="{{ route('jogo.class_peixe') }}"><i class="fas fa-fish"></i> Peixes</a> <br>
-                <a class="subClasse" href="{{ route('jogo.class_reptil') }}"><i class="fab fa-d-and-d"></i>/<i class="fas fa-frog"></i> Reptéis e anfíbios</a>
-            </div>
+        <div class="btn-group btnPrincipalMarge col">
+            <button class="btn shadow-none button-size btn-orange button-orange btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Classe
+            </button>
+            <ul class="dropdown-menu w-100">
+              <li><a class="dropdown-item subClasse" href="{{ route('jogo.class_ave') }}"><i class="fas fa-crow"></i> Aves</a></li>
+              <li><a class="dropdown-item subClasse" href="{{ route('jogo.class_mamifero') }}"><i class="fas fa-dog"></i> Mamíferos</a></li>
+              <li><a class="dropdown-item subClasse" href="{{ route('jogo.class_inseto') }}"><i class="fas fa-bug"></i> Insetos</a></li>
+              <li><a class="dropdown-item subClasse" href="{{ route('jogo.class_peixe') }}"><i class="fas fa-fish"></i> Peixes</a></li>
+              <li><a class="dropdown-item subClasse" href="{{ route('jogo.class_reptil') }}"><i class="fas fa-frog"></i> Reptéis e anfíbios</a></li>
+            </ul>
+        </div>
+
+        <div class="btn-group btnPrincipalMarge col">
+            <button class="btn shadow-none button-size btn-orange button-orange btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Ordem
+            </button>
+            <ul class="dropdown-menu w-100">
+              <li><a class="dropdown-item subClasse" href="{{ route('jogo.order_carnivoro') }}"><i class="fas fa-drumstick-bite"></i> Carnívoros</a></li>
+              <li><a class="dropdown-item subClasse" href="{{ route('jogo.order_herbivoro') }}"><i class="fas fa-seedling"></i> Herbívoros</a></li>
+              <li><a class="dropdown-item subClasse" href="{{ route('jogo.order_onivoro') }}"><i class="fas fa-egg"></i> Onívoros</a></li>
+            </ul>
+        </div>
+
+        <div class="btn-group btnPrincipalMarge col">
+            <button class="btn shadow-none button-size btn-orange button-orange btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Habitat
+            </button>
+            <ul class="dropdown-menu w-100">
+              <li><a class="dropdown-item subClasse" href="{{ route('jogo.habitat_aereo') }}"><i class="fas fa-wind"></i> Aéreos</a></li>
+              <li><a class="dropdown-item subClasse" href="{{ route('jogo.habitat_aquatico') }}"><i class="fas fa-tint"></i> Aquáticos</a></li>
+              <li><a class="dropdown-item subClasse" href="{{ route('jogo.habitat_terrestre') }}"><i class="fas fa-tree"></i> Terrestre</a></li>
+            </ul>
         </div>
 
         <div class="col btnPrincipalMarge">
-            <a class="btn button-size button-orange btn-select px-2" href="" data-toggle="collapse" data-target="#order" aria-controls="order">Ordem</a>
-            <div class="collapse" id="order">
-                <a class="subClasse" href="{{ route('jogo.order_carnivoro') }}"><i class="fas fa-drumstick-bite"></i> Carnívoros</a><br>
-                <a class="subClasse" href="{{ route('jogo.order_herbivoro') }}"><i class="fas fa-seedling"></i> Herbívoros</a><br>
-                <a class="subClasse" href="{{ route('jogo.order_onivoro') }}"><i class="fas fa-egg"></i> Onívoros</a>
-            </div>
+            <a class="btn shadow-none button-size button-orange px-2" href="{{ route('jogo.brasileiro') }}">Brasileiros</a>
         </div>
 
         <div class="col btnPrincipalMarge">
-            <a class="btn button-size button-orange btn-select px-2" href="" data-toggle="collapse" data-target="#habitat" aria-controls="habitat">Habitat</a>
-            <div class="collapse" id="habitat">
-                <a class="subClasse" href="{{ route('jogo.habitat_aereo') }}"><i class="fas fa-wind"></i> Aéreos</a><br>
-                <a class="subClasse" href="{{ route('jogo.habitat_aquatico') }}"><i class="fas fa-tint"></i> Aquáticos</a><br>
-                <a class="subClasse" href="{{ route('jogo.habitat_terrestre') }}"><i class="fas fa-tree"></i> Terrestre</a>
-            </div>
-        </div>
-
-        <div class="col btnPrincipalMarge">
-            <a class="btn button-size button-orange px-2" href="{{ route('jogo.brasileiro') }}">Brasileiros</a>
-        </div>
-
-        <div class="col btnPrincipalMarge">
-            <a class="btn button-size button-orange px-2" href="{{ route('jogo.aleatorio') }}">Aleatório</a>
+            <a class="btn shadow-none button-size button-orange px-2" href="{{ route('jogo.aleatorio') }}">Aleatório</a>
         </div>
     
     </div>

@@ -18,10 +18,14 @@
   transition: .3s ease-in;
 }
 
+.button-orange:focus{
+  outline: none;
+}
+
 .button-orange:hover{
-  background-color: #eebf99;
-  border: 1px solid #eebf99;
-  color: #a36404;
+  background-color: #eebf99!important;
+  border: 1px solid #eebf99!important;
+  color: #a36404!important;
 }
 
 .form-control{
@@ -48,6 +52,16 @@
   margin-left: 8px;
 }
 
+.page-link{
+  color: #ff8c2f!important;
+}
+
+.page-item.active .page-link{
+  background-color: #ff8c2f!important;
+  border-color: #ff8c2f!important;
+  color: #fff!important;
+}
+
 .flex{
   display: flex!important;
 }
@@ -58,6 +72,6 @@
   }
   .mrg-l{
     margin-left: 0px;
-    padding-top: 20px;
+    margin-top: 10px;
   }
 }

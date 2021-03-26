@@ -83,7 +83,7 @@ class AnimalController extends Controller
     {
         $user = auth()->user();
         $rankings = Ranking::orderBy('time')->get();
-        $animals = Animal::where('user_id', $user->id)->orderBy('id', 'DESC')->paginate();
+        $animals = Animal::where('user_id', $user->id)->orderBy('id', 'DESC')->paginate(3);
 
         //dd($animals);
 
