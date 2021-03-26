@@ -68,7 +68,7 @@
       <div class="mt-4">
           <x-label for="gender" :value="__('Gênero')" />
           <div class="flex justify-between mt-2 mb- flex-row" >
-              <x-input id="gender" type="radio" name="gender" value="female" required/>
+              <x-input id="gender" type="radio" name="gender" value="female"/>
               <span class="text-sm">Feminino</span>
   
               <x-input id="gender" type="radio" name="gender" value="male"/>

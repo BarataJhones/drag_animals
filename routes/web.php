@@ -17,6 +17,7 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/animals-rigister', [AnimalController::class, 'animalsRegister'])->name('animals.viewRegister');
     Route::post('/animals-rigister', [AnimalController::class, 'store'])->name('animals.register'); 
     Route::post('/jogo/ranking-register', [AnimalController::class, 'storeRanking'])->name('ranking.register');
+    Route::get('/dashboard', [AnimalController::class, 'listAnimals'])->name('dashboard');
 });
 
 Route::get('/home', [AnimalController::class, 'index'])->name('return.index');
@@ -51,9 +52,5 @@ Route::get('/jogo/aleatorio', [AnimalController::class, 'jogoAleatorio'])->name(
 Route::get('/', function () {
     return view('telas.index');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

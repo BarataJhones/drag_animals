@@ -1,18 +1,11 @@
 .bs-example {
     padding-top: 1em;
-    background-color: rgb(103, 168, 248);
+    background-color: #ef8700;
 }
 
 .headerText{
-    font-size: 1.3em;
+    font-size: 1.2em;
     color: white !important;
-}
-
-.header-frase {
-    color: rgb(46, 148, 243);
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: bold;
-    text-align: center;
 }
 
 .navbar-toggler{background-color: white !important;}
@@ -24,12 +17,12 @@
     object-fit: cover;
 }
 
-.dropdown-menu a{ color: #00AEEF !important;}
+.dropdown-menu a{ color: #d6761b !important;}
 .dropdown-item{font-size: 1em !important;}
 
 /*Customização do botão navibar mobile*/
-.custom-toggler.navbar-toggler { border-color: #00AEEF !important;}
-.fa-bars{color: #00AEEF;}
+.custom-toggler.navbar-toggler { border-color: #ef8700 !important;}
+.fa-bars{color: #ef8700;}
 /**/
 
 .logoDragAnimals {

@@ -1,12 +1,63 @@
-.btn-selection{
-  background-color: rgb(103, 168, 248);
+.button-size{
   font-size: 1.5em!important;
-  color: rgb(255, 255, 255);
   padding: 10px 25px 10px 25px!important;
   border-radius: 40px!important;
 }
 
-.btn-selection:hover{
-  background-color: rgb(27, 127, 250);
-  color: rgb(255, 255, 255);
+.header-frase {
+  color: #d17428;
+  text-shadow: 2px 2px 3px #f5cdac ;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+.button-orange{
+  color: #fff!important;
+  background-color: #ff8c2f!important;
+  transition: .3s ease-in;
+}
+
+.button-orange:hover{
+  background-color: #eebf99;
+  border: 1px solid #eebf99;
+  color: #a36404;
+}
+
+.form-control{
+  outline: none!important;
+}
+
+.form-select:focus, .form-control:focus{
+  outline: none;
+  box-shadow: 1px 0px 6px #f3af79!important;
+  border-color: #f3af79!important;
+  border: 1px solid #f3af79!important;
+}
+
+.links{
+  text-decoration: none;
+  color: #d17428;
+}
+
+.links:hover{
+  color: #ff8c2f;
+}
+
+.mrg-l{
+  margin-left: 8px;
+}
+
+.flex{
+  display: flex!important;
+}
+
+@media screen and (max-width: 870px){
+  .flex{
+    display: block!important;
+  }
+  .mrg-l{
+    margin-left: 0px;
+    padding-top: 20px;
+  }
 }

@@ -1,48 +1,58 @@
-.btn-selection{
-    background-color: #67a8f8;
-    font-size: 1.5em!important;
-    width: 7em;
-    color: #ffffff;
-    padding: 10px 25px 10px 25px!important;
-    border-radius: 40px!important;
-  }
-  
-  .btn-selection:hover{
-    background-color: #1b7ffa;
-    color: #ffffff;
-  }
+.btnPrincipalMarge{margin-bottom: 2em;} /*Só pra dar margem em telas menores responsividade*/
 
-  .btnPrincipalMarge{margin-bottom: 2em;} /*Só pra dar margem em telas menores responsividade*/
+.subClasse{font-size: 1.5em;}
 
-  .subClasse{font-size: 1.5em;}
+.btn-select:after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f107";
+  position: absolute;
+  opacity: 0;  
+  top: 12px;
+  right: 25px;
+  transition: 0.5s;
+  vertical-align: middle;
+  font-weight: 900;
+}
 
-  
-  .btn{
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
+.button-size{
+  font-size: 1.5em!important;
+  padding: 10px 45px 10px 45px!important;
+  border-radius: 40px!important;
+}
 
-  .btn:after {
-    font-family: "Font Awesome 5 Free";
-    content: "\f107";
-    position: absolute;
-    opacity: 0;  
-    top: 14px;
-    right: 20px;
-    transition: 0.5s;
-    vertical-align: middle;
-    font-weight: 900;
-    
-  }
-  
-  .btn:hover{
-    padding-right: 24px;
-    padding-left:8px;
-  }
-  
-  .btn:hover:after {
-    opacity: 1;
-    right: 10px;
-  }
+.header-frase {
+  color: #d17428;
+  text-shadow: 2px 2px 3px #f5cdac ;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+.button-orange{
+  color: #fff;
+  background-color: #ff8c2f;
+  transition: .3s ease-in;
+}
+
+.button-orange:hover{
+  background-color: #eebf99;
+  border: 1px solid #eebf99;
+  color: #a36404;
+}
+
+.btn{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn:hover{
+  padding-right: 24px;
+  padding-left:8px;
+}
+
+.btn:hover:after {
+  opacity: 1;
+  right: 10px;
+}

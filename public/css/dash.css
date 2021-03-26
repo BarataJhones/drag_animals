@@ -1,0 +1,32 @@
+.tabela{
+  border-spacing: 2px;
+  border-collapse: collapse;
+  border-color: transparent!important;
+}
+
+.tabela td, .tabela th {
+  padding: .75rem;
+  vertical-align: top;
+}
+
+.tabela tbody tr:hover{
+  background-color: #f0ad76;
+}
+
+.tabela td{
+  text-align: center;
+}
+
+.flex{
+  display: flex!important;
+}
+
+h1{
+  text-align: center;
+}
+
+@media screen and (max-width: 870px){
+  .flex{
+    display: block!important;
+  }
+}

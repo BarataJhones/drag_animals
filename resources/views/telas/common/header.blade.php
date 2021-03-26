@@ -30,13 +30,13 @@
 
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav">
-                    <a href="{{ route('return.index') }}" class="headerText nav-item nav-link active"><i class="fas fa-home"></i> Início</a> 
+                    <a href="/" class="headerText nav-item nav-link active"><i class="fas fa-home"></i> Início</a> 
                     <a href="#" class="headerText nav-item nav-link"><i class="fas fa-info-circle"></i> Sobre</a>
-                    <a href="#" class="headerText nav-item nav-link"><i class="fas fa-user"></i> Área do usuário</a>
+                    <a href="{{ route('dashboard')  }}" class="headerText nav-item nav-link"><i class="fas fa-user"></i> Área do usuário</a>
                     <a href="{{ route('rankin.main') }}" class="headerText nav-item nav-link"><i class="fas fa-trophy"></i> Rankings</a>
                 </div>
             
-                <div class="headerText navbar-nav ml-auto dropdown">
+                <div class="headerText navbar-nav ml-auto dropdown flex">
                     @if ((Auth::id()!=null))
                         <a href="#" class="headerText nav-link dropdown-toggle" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,7 +50,7 @@
                             Bem vindo, @php echo $primeiroNome; @endphp
                 
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
                 
                             <a class="dropdown-item"
                                 href="#">
@@ -59,7 +59,7 @@
                 
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <a class="headerText dropdown-item" :href="route('logout')"
+                                <a class="headerText dropdown-item" style="cursor: pointer" :href="route('logout')"
                                     onclick="event.preventDefault();this.closest('form').submit();">
                                     <i class="fas fa-power-off"></i> Sair
                                 </a>

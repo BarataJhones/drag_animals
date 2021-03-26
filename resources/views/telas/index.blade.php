@@ -23,9 +23,9 @@
             </a> --}}
             <section class="d-flex justify-content-center mt-5">
                 <section class="d-flex justify-content-between w-50">
-                    <a class="btn btn-selection" href="">Sobre</a>
-                    <a class="btn btn-selection" href="{{ route('animals.selecao') }}">Jogar</a>
-                    <a class="btn btn-selection" href="{{ route('rankin.main') }}">Pontuações</a>
+                    <a class="btn button-size button-orange" href="">Sobre</a>
+                    <a class="btn button-size button-orange" href="{{ route('animals.selecao') }}">Jogar</a>
+                    <a class="btn button-size button-orange" href="{{ route('rankin.main') }}">Pontuações</a>
                 </section>
             </section>
         </section>

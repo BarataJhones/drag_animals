@@ -82,11 +82,12 @@ class AnimalController extends Controller
     public function listAnimals()
     {
         $user = auth()->user();
-        $animals = Animal::where('user_id', $user)->orderBy('id', 'DESC')->paginate();
+        $rankings = Ranking::orderBy('time')->get();
+        $animals = Animal::where('user_id', $user->id)->orderBy('id', 'DESC')->paginate();
 
         //dd($animals);
 
-        return view('telas.index', compact('animals', 'user'));
+        return view('telas.dashboard', compact('user', 'rankings', 'animals'));
     }
 
 
