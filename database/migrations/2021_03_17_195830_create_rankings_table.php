@@ -16,6 +16,7 @@ class CreateRankingsTable extends Migration
         Schema::create('rankings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('time');
             $table->string('game_type');
             $table->timestamps();
         });

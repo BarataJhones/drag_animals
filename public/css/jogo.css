@@ -9,6 +9,11 @@
     background-color: #8de2a1;
 }
 
+.timer{
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
 .area{
     margin-bottom: 1em;
     padding: 1em;
@@ -26,4 +31,9 @@
     width: 9em;
     height: 9em;
     object-fit: cover;
+  }
+
+  .mensagem{
+    font-size: 1em;
+    color: #ffc14f;
   }
