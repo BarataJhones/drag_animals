@@ -19,7 +19,7 @@
             <!--Botão collapse-->
             <button type="button" class="btn botaoComeçar" data-toggle="collapse" data-target="#collapseExample"
                 aria-controls="collapseExample" id="playButton">
-                Começar!
+                <i class="fas fa-play"></i> Começar!
             </button>
         </div>
 
@@ -28,13 +28,19 @@
             <!--Timer-->
             <div class="text-center">
                 <span id="display" class="timer">00:00:00</span>
-            </div>
+            </div> <br>
 
+            <div class="text-center">
+                <button type="button" class="btn botaoReiniciar" onClick="window.location.reload();">
+                    <i class="fas fa-sync-alt"></i> Reiniciar
+                </button>
+            </div> <br>
+            
             <!--Div que exibe as imagens dos bichos-->
             <div class="row area">
                 @foreach ($animals as $animal)
-                    <div class="col" style="background-color: #eefdff; padding: 1em">
-                        <img id="imagem_{{ $animal->id }}" src="{{ url("storage/$animal->image") }}" draggable="true" ondragstart="drag(event)">
+                    <div class="col" style="background-color: #fdf0d8; padding: 1em">
+                        <img id="imagem_{{ $animal->id }}" src="{{ Storage::disk('s3')->url($animal->image) }}" draggable="true" ondragstart="drag(event)">
                     </div>
                 @endforeach
             </div>
@@ -48,9 +54,9 @@
                             ondragover="allowDrop(event)">
 
                             <button type="button" value="PLAY" onclick="play('audio_{{ $quadro->id }}')"
-                                class="btn btn-primary" style="margin-bottom: 1em">{{ $quadro->name }}
+                                class="btn botaoAudio" style="margin-bottom: 1em">{{ $quadro->name }}
                             </button>
-                            <audio id="audio_{{ $quadro->id }}" src="{{ url("storage/$quadro->audio") }}"></audio>
+                            <audio id="audio_{{ $quadro->id }}" src="{{ Storage::disk('s3')->url($quadro->audio) }}"></audio> 
 
                         </div> <br>
                     </div>
@@ -63,9 +69,9 @@
         <!--Essa div exibe a mensagem após completar o desafio. Se o user estiver logado, aparece o botão com a opção de salvar a pontuação.-->
         <div class="text-center" style="font-size: 2em" id="mensagem" hidden>
             <p class="mensagem">
-                Congratulations! Você conseguiu completar o desafio!
+                <b>Congratulations! Você conseguiu completar o desafio!</b>
             </p>
-            Sua pontuação foi: <span id="timerResult"></span><br>
+            Sua pontuação foi: <b id="timerResult"></b><br><br>
 
             <!--Quando o user estiver logado-->
             @if ((Auth::id()!=null))
@@ -83,7 +89,7 @@
         <!--Não logado-->
             @else
                 Faça Login para salvar sua pontuação <br>
-                <a href="{{ route('login') }}" class="">
+                <a href="{{ route('login') }}" class="" style="text-decoration: none;">
                     <i class="fas fa-sign-in-alt"></i> Login
                 </a>
             @endif

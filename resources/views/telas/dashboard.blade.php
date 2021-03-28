@@ -21,6 +21,13 @@
     </head>
     <body>
         @include('telas.common.header')
+
+        @if (session('message'))
+        <div class="mt-3 mx-3 alert alert-success fade show" role="alert">
+            {{ session('message') }}
+        </div>
+        @endif
+
         <div class="d-flex justify-content-center pt-5">
             <h1 class="text-center">Dashboard</h1>
         </div>
@@ -42,6 +49,11 @@
                             </tbody>
                         </table>
                     </div>
+                    
+                    <div class="d-flex justify-content-center">
+                        {{ $rankings->links() }}
+                    </div>
+
                     <div class="w-100 pt-1 px-4 pb-2">
                         <a class="button-orange btn btn-lg w-100" href="{{ route('rankin.main') }}" style="border-radius: 40px;">
                             Ver todas as pontuações
@@ -64,7 +76,8 @@
                             @foreach ( $animals as $animal)
                                 <section class="d-flex flex-column px-4 justify-content-center text-center">
                                     <div class="card justify-content-center d-block my-2" style="width: 12rem">
-                                        <img class="px-2 py-2" src="{{ asset('/storage/'.$animal->image) }}" width="120" alt="">
+                                        <img class="px-2 py-2" src="{{ Storage::disk('s3')->url($animal->image) }}" width="120" alt="">
+
                                         <div class="card-body">
                                         <h5 style="margin-bottom: 0!important">
                                             <strong>{{ $animal->name }}</strong>
@@ -75,7 +88,17 @@
                                             <li class="list-group-item">{{ $animal->order }}</li>
                                             <li class="list-group-item">{{ $animal->habitat }}</li>
                                         </ul>
+
+                                        <form action="{{ route('animal.destroy', $animal->id) }}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button class="btn" style="color: red">
+                                                Deletar <i class="fas fa-trash" ></i>
+                                            </button>
+                                        </form>
+                                        
                                     </div>
+                                    
                                 </section>
                             @endforeach
                         </div>

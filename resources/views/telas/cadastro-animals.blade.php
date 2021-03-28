@@ -16,7 +16,8 @@
         <div class="py-2 text-center">
             <h5>
                 <strong>Instruções para envio do áudio:</strong> Acesse o site <a class="links" href="https://soundoftext.com/"><strong>Sound Of Text</strong></a>, escreva o nome do animal em inglês, escolha a lingúa (recomendamos English (United States),
-                clique em <strong>submit</strong> e depois clique em <b>download</b> para baixar o áudio.
+                clique em <strong>submit</strong> e depois clique em <b>download</b> para baixar o áudio. <br>
+                Caso tenha dúvida de um animal já foi cadastrado, <a class="links" href="{{ route ('animals.list') }}"><strong>Clique aqui</strong></a>.
             </h5>
         </div> 
         

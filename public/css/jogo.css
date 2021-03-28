@@ -2,12 +2,22 @@
 
 .botaoComeçar{
     margin-bottom: 1em;
-    width: 5.5em; height: auto;
-    font-size: 2em;
+    width: 7em; height: auto;
+    font-size: 1.5em;
     color:white;
     border-radius: 50px;
-    background-color: #8de2a1;
+    background-color: #72cf6a;
 }
+
+.botaoReiniciar{
+  margin-bottom: 1em;
+  width: 7em; height: auto;
+  font-size: 1.5em;
+  color:white;
+  border-radius: 50px;
+  background-color: #ef76fa;
+}
+
 
 .timer{
   font-size: 2.5em;
@@ -26,6 +36,12 @@
     border: 3px solid #aaaaaa;
     border-radius: 10%;
   }
+
+.botaoAudio{
+  background-color: #ffa600;
+  color: white;
+  font-weight: bold;
+}
 
   img{
     width: 9em;

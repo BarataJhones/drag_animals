@@ -34,9 +34,9 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav">
                     <a href="/" class="headerText nav-item nav-link active"><i class="fas fa-home"></i> Início</a> 
-                    <a href="#" class="headerText nav-item nav-link"><i class="fas fa-info-circle"></i> Sobre</a>
+                    <a href="{{ route('animals.selecao')  }}" class="headerText nav-item nav-link"><i class="fas fa-gamepad"></i> Jogar</a>
                     <a href="{{ route('dashboard')  }}" class="headerText nav-item nav-link"><i class="fas fa-user"></i> Área do usuário</a>
-                    <a href="{{ route('rankin.main') }}" class="headerText nav-item nav-link"><i class="fas fa-trophy"></i> Rankings</a>
+                    <a href="{{ route('rankin.main') }}" class="headerText nav-item nav-link"><i class="fas fa-trophy"></i> Pontuações</a>
                 </div>
             
                 <div class="headerText navbar-nav ml-auto flex">
@@ -50,7 +50,7 @@
                                     $avatar = Auth::user()->avatar;
                                 ?>
                     
-                                <img src="{{ url("storage/$avatar") }}" class="userAvatar">
+                                <img src="{{ Storage::disk('s3')->url($avatar) }}" class="userAvatar">
                                 Bem vindo(a), @php echo $primeiroNome; @endphp
                 
                             </button>
