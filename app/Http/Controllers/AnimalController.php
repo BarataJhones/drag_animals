@@ -7,6 +7,7 @@ use App\Http\Requests\StoreUpdateRanking;
 use App\Models\Animal;
 use App\Models\Ranking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AnimalController extends Controller
 {
@@ -42,25 +43,26 @@ class AnimalController extends Controller
         //Imagem
         if ($request->image->isValid()) {
 
-            $image = $request->image->store('animalsData.image');
+            $image = $request->image->store(path: 'animalsData.image', options:'s3');
             $data['image'] = $image;
         }
 
+        Storage::disk( name: 's3')->setVisibility($image, visibility: 'public');
+
         //Audio
         
-
         if ($request->audio->isValid()) {
 
-            $audio = $request->audio->store('animalsData.audio');
+            $audio = $request->audio->store(path: 'animalsData.audio', options:'s3');
             $data['audio'] = $audio;
         }
 
-        //dd($data['audio']);
+        Storage::disk( name: 's3')->setVisibility($audio, visibility: 'public');
 
-        $aula_id = Animal::create($data); //Variável $aula_id Caso precisa usar o id da aula para outra coisa nessa função
+        Animal::create($data);
 
         return redirect()
-            ->route('return.index')
+            ->route('dashboard')
             ->with('message', 'Animal cadastrado com sucesso');
     }
 
@@ -82,7 +84,7 @@ class AnimalController extends Controller
     public function dashboard()
     {
         $user = auth()->user();
-        $rankings = Ranking::where('user_id',$user->id)->orderBy('time')->get();
+        $rankings = Ranking::where('user_id',$user->id)->orderBy('time')->paginate(3);
         $animals = Animal::where('user_id', $user->id)->orderBy('id', 'DESC')->paginate(3);
 
         //dd($animals);
@@ -131,5 +133,23 @@ class AnimalController extends Controller
 
         return view('telas.ranking', compact('rankings', 'filters'))
                 ->with('message', 'Resultado da busca:');
+    }
+
+    public function destroy($id)
+    {
+        if (!$animal = Animal::find($id))
+            return redirect()->back();
+
+        if (Storage::disk('s3')->exists($animal->image))
+            Storage::disk('s3')->delete($animal->image);
+
+        if (Storage::disk('s3')->exists($animal->audio))
+            Storage::disk('s3')->delete($animal->audio);
+
+        $animal->delete();
+
+        return redirect()
+            ->back()
+            ->with('message', 'Animal deletado com sucesso.');
     }
 }

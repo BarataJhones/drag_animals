@@ -1,5 +1,7 @@
 <title>Drag Animals - Lista de animals</title>
 
+<link rel="stylesheet" href="{{asset('css/main.css')}}">
+
 <body>
     @include ('telas.common.header')
 

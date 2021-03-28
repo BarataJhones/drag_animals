@@ -71,9 +71,11 @@ function drop(ev) {
     if (ev.target.id.slice(7) == data2.slice(7)) {
         ev.target.appendChild(document.getElementById(data2));
         contAcertos++;
-        if (contAcertos === 5) {
+        if (contAcertos === 10) {
             document.getElementById("mensagem").removeAttribute('hidden');
             clearInterval(timerInterval);
+            document.getElementById("playButton").setAttribute("hidden", true);
+            document.getElementById("display").setAttribute("hidden", true);
         }
     } else {
         alert("Oops! Este não é o bichinho certo.");

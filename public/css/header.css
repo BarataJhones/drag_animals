@@ -17,8 +17,18 @@
     object-fit: cover;
 }
 
-.dropdown-menu a{ color: #d6761b !important;}
-.dropdown-item{font-size: 1em !important;}
+.dropdown-menu, .dropdown-menu a{ color: #d6761b !important;}
+.dropdown-item .drop-item{font-size: 1em !important;}
+.dropdown-divider{
+    height: 0!important;
+    color: #ef8700!important;
+}
+.dropdown-item.active, .dropdown-item:active{
+    background-color:#ef8700!important;
+}
+.dropdown-menu a:active{
+    color: #fff!important;
+}
 
 /*Customização do botão navibar mobile*/
 .custom-toggler.navbar-toggler { border-color: #ef8700 !important;}
@@ -29,12 +39,6 @@
     width: 5em;
     height: auto;
     margin-right: 2em
-}
-
-.icone-video{
-    background-image: url('https://casule.com/wp-content/uploads/2019/07/icone-play-branco.png');
-    background-repeat: no-repeat;
-    display: block;
 }
 
 @media (min-width: 1200px){

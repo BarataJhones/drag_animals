@@ -10,7 +10,7 @@ class GameModesController extends Controller
 {
     public function jogoClassAve()
     {
-        $animals = Animal::where('class', "Ave")->inRandomOrder()->paginate(5);
+        $animals = Animal::where('class', "Ave")->inRandomOrder()->paginate(10);
 
         $quadros = $animals->shuffle();
 
@@ -21,7 +21,7 @@ class GameModesController extends Controller
 
     public function jogoClassAnfibio()
     {
-        $animals = Animal::where('class', "Anfíbio")->inRandomOrder()->paginate(5);
+        $animals = Animal::where('class', "Anfíbio")->inRandomOrder()->paginate(10);
 
         $quadros = $animals->shuffle();
 
@@ -32,7 +32,7 @@ class GameModesController extends Controller
 
     public function jogoClassMamifero()
     {
-        $animals = Animal::where('class', "Mamífero")->inRandomOrder()->paginate(5);
+        $animals = Animal::where('class', "Mamífero")->inRandomOrder()->paginate(10);
 
         $quadros = $animals->shuffle();
 
@@ -43,7 +43,7 @@ class GameModesController extends Controller
 
     public function jogoClassInseto()
     {
-        $animals = Animal::where('class', "Inseto")->inRandomOrder()->paginate(5);
+        $animals = Animal::where('class', "Inseto")->inRandomOrder()->paginate(10);
 
         $quadros = $animals->shuffle();
 
@@ -54,7 +54,7 @@ class GameModesController extends Controller
 
     public function jogoClassPeixe()
     {
-        $animals = Animal::where('class', "Peixe")->inRandomOrder()->paginate(5);
+        $animals = Animal::where('class', "Peixe")->inRandomOrder()->paginate(10);
 
         $quadros = $animals->shuffle();
 
@@ -65,7 +65,7 @@ class GameModesController extends Controller
 
     public function jogoClassReptil()
     {
-        $animals = Animal::where('class', "Réptil/Anfíbio")->inRandomOrder()->paginate(5);
+        $animals = Animal::where('class', "Réptil/Anfíbio")->inRandomOrder()->paginate(10);
 
         $quadros = $animals->shuffle();
 
@@ -76,7 +76,7 @@ class GameModesController extends Controller
 
     public function jogoOrderCarnivoro()
     {
-        $animals = Animal::where('order', "Carnívoro")->inRandomOrder()->paginate(5);
+        $animals = Animal::where('order', "Carnívoro")->inRandomOrder()->paginate(10);
 
         $quadros = $animals->shuffle();
 
@@ -87,7 +87,7 @@ class GameModesController extends Controller
 
     public function jogoOrderHerbivoro()
     {
-        $animals = Animal::where('order', "Herbívoro")->inRandomOrder()->paginate(5);
+        $animals = Animal::where('order', "Herbívoro")->inRandomOrder()->paginate(10);
 
         $quadros = $animals->shuffle();
 
@@ -98,7 +98,7 @@ class GameModesController extends Controller
 
     public function jogoOrderOnivoro()
     {
-        $animals = Animal::where('order', "Onívoro")->inRandomOrder()->paginate(5);
+        $animals = Animal::where('order', "Onívoro")->inRandomOrder()->paginate(10);
 
         $quadros = $animals->shuffle();
 
@@ -109,7 +109,7 @@ class GameModesController extends Controller
 
     public function jogoHabitatAereo()
     {
-        $animals = Animal::where('habitat', "Aéreo")->inRandomOrder()->paginate(5);
+        $animals = Animal::where('habitat', "Aéreo")->inRandomOrder()->paginate(10);
 
         $quadros = $animals->shuffle();
 
@@ -120,7 +120,7 @@ class GameModesController extends Controller
 
     public function jogoHabitatAquatico()
     {
-        $animals = Animal::where('habitat', "Aquático")->inRandomOrder()->paginate(5);
+        $animals = Animal::where('habitat', "Aquático")->inRandomOrder()->paginate(10);
 
         $quadros = $animals->shuffle();
 
@@ -131,7 +131,7 @@ class GameModesController extends Controller
 
     public function jogoHabitatTerrestre()
     {
-        $animals = Animal::where('habitat', "Terrestre")->inRandomOrder()->paginate(5);
+        $animals = Animal::where('habitat', "Terrestre")->inRandomOrder()->paginate(10);
 
         $quadros = $animals->shuffle();
 
@@ -142,7 +142,7 @@ class GameModesController extends Controller
 
     public function jogoBrasileiro()
     {
-        $animals = Animal::where('brazilian', "Sim")->inRandomOrder()->paginate(5);
+        $animals = Animal::where('brazilian', "Sim")->inRandomOrder()->paginate(10);
 
         $quadros = $animals->shuffle();
 
@@ -153,7 +153,7 @@ class GameModesController extends Controller
 
     public function jogoAleatorio()
     {
-        $animals = Animal::inRandomOrder()->paginate(5);
+        $animals = Animal::inRandomOrder()->paginate(10);
 
         $quadros = $animals->shuffle();
 

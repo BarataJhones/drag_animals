@@ -3,6 +3,7 @@
     href="https://www.pngkit.com/png/full/392-3929588_kawaii-cute-edit-editing-overlay-png-dog-draw.png"
     type="image/x-icon">
 <link rel="stylesheet" href="{{asset('css/ranking.css')}}">
+<link rel="stylesheet" href="{{asset('css/main.css')}}">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
 <body>
@@ -14,9 +15,7 @@
 
             <div class="py-2 text-center">
                 <h5>
-                    <strong>
-                        Você pode listar o ranking por uma categoria específica, ou digitar o nome de um usuário, instituição ou série e buscar as pontuações.    
-                    </strong>.
+                     Você pode listar o ranking por uma categoria específica, ou digitar o nome de um usuário, instituição ou série e buscar as pontuações.     
                 </h5>
             </div> 
 
@@ -86,7 +85,12 @@
                 @foreach ($rankings as $ranking)
                     <tr>
                         <th scope="row">{{ $position }}</th>
-                        <td>{{ $ranking->user->name }}</td>
+                        <td>
+                            <?php $avatar = $ranking->user->avatar; ?>
+                    
+                            <img src="{{ url("storage/$avatar") }}" class="userAvatar">
+                            {{ $ranking->user->name }}</td>
+
                         <td><b>{{ $ranking->time }}</b></td>
                         <td>{{ $ranking->game_type }}</td>
                         <td>{{ $ranking->user->institution  }}</td>

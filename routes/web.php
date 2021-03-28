@@ -15,18 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::middleware(['auth'])->group(function (){
-    Route::get('/animals-rigister', [AnimalController::class, 'animalsRegister'])->name('animals.viewRegister');
-    Route::post('/animals-rigister', [AnimalController::class, 'store'])->name('animals.register'); 
+    Route::get('/animals-register', [AnimalController::class, 'animalsRegister'])->name('animals.viewRegister');
+    Route::post('/animals-register', [AnimalController::class, 'store'])->name('animals.register'); 
     Route::post('/jogo/ranking-register', [AnimalController::class, 'storeRanking'])->name('ranking.register');
     Route::get('/dashboard', [AnimalController::class, 'dashboard'])->name('dashboard');
+    Route::delete('//dashboard/animal/{id}', [AnimalController::class, 'destroy'])->name('animal.destroy');
     Route::get('/list-animals', [AnimalController::class, 'listAnimals'])->name('animals.list');
     Route::any('/list-animals/search', [AnimalController::class, 'searchAnimal'])->name('animal.search');
 });
 
 Route::get('/home', [AnimalController::class, 'index'])->name('return.index');
-
-Route::get('/animals-rigister', [AnimalController::class, 'animalsRegister'])->name('animals.viewRegister');
-Route::post('/animals-rigister', [AnimalController::class, 'store'])->name('animals.register');
 
 Route::get('/home', [AnimalController::class, 'index'])->name('return.index');
 Route::get('/selecao-jogo', [AnimalController::class, 'selecaoJogo'])->name('animals.selecao');

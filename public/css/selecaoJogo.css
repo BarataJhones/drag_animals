@@ -1,8 +1,8 @@
 .btnPrincipalMarge{margin-bottom: 2em;} /*Só pra dar margem em telas menores responsividade*/
 
-.subClasse{font-size: 1.5em;}
+.subClasse{font-size: 1.3em;}
 
-.btn-select:after {
+/* .btn-select:after {
   font-family: "Font Awesome 5 Free";
   content: "\f107";
   position: absolute;
@@ -12,12 +12,13 @@
   transition: 0.5s;
   vertical-align: middle;
   font-weight: 900;
-}
+} */
 
 .button-size{
   font-size: 1.5em!important;
   padding: 10px 45px 10px 45px!important;
   border-radius: 40px!important;
+  width: 100%;
 }
 
 .header-frase {
@@ -40,7 +41,11 @@
   color: #a36404;
 }
 
-.btn{
+.btn-orange{
+  border-radius: 30px;
+}
+
+/* .btn{
   cursor: pointer;
   display: inline-block;
   position: relative;
@@ -55,4 +60,4 @@
 .btn:hover:after {
   opacity: 1;
   right: 10px;
-}
+} */
