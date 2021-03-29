@@ -88,7 +88,8 @@
                         <td>
                             <?php $avatar = $ranking->user->avatar; ?>
                     
-                            <img src="{{ url("storage/$avatar") }}" class="userAvatar">
+                            <img src="{{ Storage::disk('s3')->url($avatar) }}" class="userAvatar">
+
                             {{ $ranking->user->name }}</td>
 
                         <td><b>{{ $ranking->time }}</b></td>
