@@ -57,7 +57,7 @@
         <!-- Image -->
         <div class="pb-4">
           <h6 class="text-center" for="name">Avatar</h6>
-          <img src="{{ url("storage/$user->avatar") }}" id="change" class="avatar">
+          <img src="{{ Storage::disk('s3')->url($user->avatar) }}" id="change" class="avatar">
           <input id="avatar" class="form-control" type="file" name="avatar" class="avatarInput" onchange="readURL(this);" />
         </div>
 
