@@ -1,31 +1,51 @@
+.background{
+  background-color: #d2ecfb;
+  background-image: url(/storage/background-01.png);
+  background-size: 200%;
+}
+
+.quadro-jogar{
+  margin: 4em;
+  transition: transform .2s; /* Animation */
+}
+
+.quadro-jogar:hover {
+  transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.quadro-imagem{
+  width: 12em;
+  height: auto;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a{
+  text-decoration: none !important;
+}
+.botao{
+  width: 12em;
+  height: 2.5em;
+  border-radius: 10px;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', 'sans-serif';
+  font-weight: 700;
+  font-size: 1em;
+  text-align: center;
+  line-height: 2.5;
+  color: white;
+  background-color: #0086c1;
+  position: relative;
+  top: -1em;
+}
+
 .button-size{
   font-size: 1.5em!important;
   padding: 10px 25px 10px 25px!important;
-  border-radius: 40px!important;
-}
-
-.header-frase {
-  color: #d17428;
-  text-shadow: 2px 2px 3px #f5cdac ;
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-weight: bold;
-  text-align: center;
-}
-
-.button-orange{
-  color: #fff!important;
-  background-color: #ff8c2f!important;
-  transition: .3s ease-in;
-}
-
-.button-orange:focus{
-  outline: none;
-}
-
-.button-orange:hover{
-  background-color: #eebf99!important;
-  border: 1px solid #eebf99!important;
-  color: #a36404!important;
+  border-radius: 15px!important;
 }
 
 .form-control{
@@ -34,18 +54,18 @@
 
 .form-select:focus, .form-control:focus{
   outline: none;
-  box-shadow: 1px 0px 6px #f3af79!important;
-  border-color: #f3af79!important;
-  border: 1px solid #f3af79!important;
+  box-shadow: 1px 0px 6px #79e5f3!important;
+  border-color: #79e5f3!important;
+  border: 1px solid #79e5f3!important;
 }
 
 .links{
   text-decoration: none;
-  color: #d17428;
+  color: #0086c1;
 }
 
 .links:hover{
-  color: #ff8c2f;
+  color: #0086c1;
 }
 
 .mrg-l{
@@ -53,12 +73,12 @@
 }
 
 .page-link{
-  color: #ff8c2f!important;
+  color: #0086c1!important;
 }
 
 .page-item.active .page-link{
-  background-color: #ff8c2f!important;
-  border-color: #ff8c2f!important;
+  background-color: #0086c1!important;
+  border-color: #0086c1!important;
   color: #fff!important;
 }
 
@@ -66,18 +86,6 @@
   display: flex!important;
 }
 
-@media screen and (max-width: 870px){
-  .flex{
-    display: block!important;
-  }
-  .mrg-l{
-    margin-left: 0px;
-    margin-top: 10px;
-  }
-}
-
-
-
 .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
-   background-color: #fff9ee;
+   background-color: #eef8ff;
 }

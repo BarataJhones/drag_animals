@@ -10,11 +10,11 @@
 }
 
 .tabela tbody tr:hover{
-  background-color: #f0ad76;
+  background-color: #ccf0ff;
 }
 
 .tabela td{
-  text-align: center;
+  text-align: left;
 }
 
 .flex{

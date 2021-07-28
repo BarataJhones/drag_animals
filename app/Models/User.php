@@ -53,4 +53,16 @@ class User extends Authenticatable
     public function rankings() {
         return $this->hasMany('App\Models\Ranking');
     }
+
+    public function animalsAlbum(){
+        return $this->belongsToMany('App\Models\Animal');
+    }
+
+    public function groupAdm(){
+        return $this->hasMany('App\Models\Group');
+    }
+
+    public function groupUsers(){
+        return $this->belongsToMany('App\Models\Group');
+    }
 }

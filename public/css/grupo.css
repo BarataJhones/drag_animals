@@ -1,0 +1,65 @@
+body{
+    background-color: #f0f2f5 !important;
+    padding-bottom: 3em;
+}
+
+.groupDetails{
+    background-color: white;
+    margin-bottom: 2em;
+    padding: 1em;
+}
+
+.container{
+    font-size: 1.2em !important;
+}
+
+.groupImage img{
+    width: 80em;
+    height: 20em;
+    object-fit: cover;
+
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    margin-bottom: 2em;
+}
+
+.groupName{
+    font-size: 2em;
+    font-weight: bold;
+}
+li a{
+    color: #0086c1 !important;
+}
+
+.postSection{
+    margin-top: 2em;
+    background-color:white;
+    padding: 2em;
+    border-radius: 10px;
+    padding: 1em;
+    margin-bottom: 2em;
+}
+
+.commentsSection{
+    margin-top: 2em;
+    background-color:white;
+    padding: 2em;
+    border-radius: 10px;
+    padding: 1em;
+    margin-top: 2em;
+}
+
+.userAvatarComment{
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.commentUser{margin-left: 1em; color: #00AEEF;}
+.commentContent{margin-left: 4.3em;}
+
+.field{
+    margin-bottom: 1em;
+}

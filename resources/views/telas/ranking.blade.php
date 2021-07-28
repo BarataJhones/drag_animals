@@ -2,11 +2,12 @@
 <link rel="shortcut icon"
     href="https://www.pngkit.com/png/full/392-3929588_kawaii-cute-edit-editing-overlay-png-dog-draw.png"
     type="image/x-icon">
-<link rel="stylesheet" href="{{asset('css/ranking.css')}}">
+
 <link rel="stylesheet" href="{{asset('css/main.css')}}">
+<link rel="stylesheet" href="{{asset('css/ranking.css')}}">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
-<body>
+<body class="background">
     @include ('telas.common.header')
 
     <section class="container" style="margin-top: 2em">
@@ -14,9 +15,9 @@
         <div class="w-100 mr-2">
 
             <div class="py-2 text-center">
-                <h5>
+                <h3>
                      Você pode listar o ranking por uma categoria específica, ou digitar o nome de um usuário, instituição ou série e buscar as pontuações.     
-                </h5>
+                </h3>
             </div> 
 
             <label for="classe">Categorias</label> 
@@ -46,7 +47,7 @@
                     </div>
 
                     <div class="input-group-append col-1">
-                        <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search" style="color:#ef8700"></i></button>
+                        <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search" style="color:#0086c1;"></i></button>
                     </div>
                 </div>
 
@@ -62,14 +63,14 @@
                 <div class="input-group mb-3">
                     <input type="text" name="search" class="form-control" placeholder="Pesquisar" aria-label="Pesquisar" aria-describedby="basic-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search" style="color:#ef8700"></i></button>
+                        <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search" style="color:#0086c1"></i></button>
                     </div>
                 </div>
             </form>
         </section>
 
         <!-- Teste de listar ranking -->
-        <table class="table table-striped">
+        <table class="table table-striped" style="background-color: white">
             @php $position = 1 @endphp
             <thead class="fundo">
                 <tr>

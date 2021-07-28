@@ -16,7 +16,9 @@ class CreateAnimalsTable extends Migration
         Schema::create('animals', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('name', 20)->unique();
+            $table->string('nameEnglish', 30)->unique();
+            $table->string('namePort', 30)->unique();
+            $table->string('nameSci', 60)->unique();
             $table->string('image');
             $table->string('audio');
             $table->string('class');

@@ -2445,12 +2445,12 @@ select {
 
 .bg-yellow-500 {
   --tw-bg-opacity: 1;
-  background-color: rgba(245, 158, 11, var(--tw-bg-opacity));
+  background-color: #eef8ff;
 }
 
 .bg-yellow-600 {
   --tw-bg-opacity: 1;
-  background-color: rgba(217, 119, 6, var(--tw-bg-opacity));
+  background-color: #0086c1;
 }
 
 .bg-yellow-700 {

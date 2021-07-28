@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Animal;
+use App\Models\Animal_User;
 use App\Models\Ranking;
 
 class GameModesController extends Controller
@@ -153,12 +154,30 @@ class GameModesController extends Controller
 
     public function jogoAleatorio()
     {
-        $animals = Animal::inRandomOrder()->paginate(10);
-
-        $quadros = $animals->shuffle();
-
+        $user = auth()->user();
+        
         $gameType = "Aleatório";
 
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
+        $animals = Animal::inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $quadros = $animals->shuffle();
+        $animalSelecs = $animals->shuffle();
+        $histories = Animal_User::where('user_id', $user->id)->get();
+
+        if (Animal_User::exists()) {
+
+            foreach ($animalSelecs as $key => $animalSelec) {
+                foreach ($histories as $historie) {
+                    if ($animalSelec->id == $historie->animal_id) {
+                        unset($animalSelecs[$key]);
+                    }
+                }
+                $animalCard = $animalSelecs->shuffle()->first();
+            }
+        } else {
+            $animalCard = $animalSelecs->shuffle()->first();
+        }
+
+        session(['card' => $animalCard]);
+        return view('telas.jogo', compact('animals', 'quadros', 'animalCard', "gameType"));
     }
 }

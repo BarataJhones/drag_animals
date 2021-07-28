@@ -24,7 +24,9 @@ class StoreUpdateAnimal extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:animals,name|min:3|max:20',
+            'nameEnglish' => 'required|unique:animals,nameEnglish|min:3|max:20',
+            'namePort' => 'required|unique:animals,namePort|min:3|max:20',
+            'nameSci' => 'required|unique:animals,nameSci|min:3|max:60',
             'image' => ['required', 'image'],
             'audio' =>'required|mimes:mpeg,mp3',
             'order' => 'required|min:3|max:20',

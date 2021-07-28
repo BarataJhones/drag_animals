@@ -1,3 +1,15 @@
+h3{
+    color: #0086c1 !important;
+    text-shadow: 2px 2px 3px #ace4f5 !important;
+    font-family: 'Montserrat Alternates', sans-serif !important;
+    font-weight: bold !important;
+    text-align: center !important;
+  }
+
 .fundo{
-    background-color: #ffdfb6 !important;
+    background-color: #ace4f5 !important;
+}
+
+.btn{
+    background-color: white !important;
 }

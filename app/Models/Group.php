@@ -5,32 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Animal extends Model
+class Group extends Model
 {
     use HasFactory;
 
-    protected $table = 'animals';
+    protected $table = 'groups';
 
     protected $fillable = [
         'id',
-        'nameEnglish',
-        'namePort',
-        'nameSci',
-        'user_id',
+        'name',
+        'user_id', //adm
         'image',
-        'audio',
-        'order',
-        'class',
-        'habitat',
-        'brazilian'
+        'about',
+        'created_at' => 'date:D-m-y'
     ];
 
-    public function user()
+    public function userAdm()
     {
         return $this->belongsTo(User :: class, 'user_id');
     }
 
-    public function userAlbum(){
+    public function usersGroup(){
         return $this->belongsToMany('App\Models\User');
     }
 }

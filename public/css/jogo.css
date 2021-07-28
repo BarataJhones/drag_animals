@@ -1,5 +1,16 @@
 .section{margin-top: 2em;}
 
+body{
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: bold;
+}
+
+h3{
+  color: #0086c1;
+  text-shadow: 2px 2px 3px #ace4f5 ;
+  text-align: center;
+}
+
 .botaoComeçar{
     margin-bottom: 1em;
     width: 7em; height: auto;
@@ -18,7 +29,6 @@
   background-color: #ef76fa;
 }
 
-
 .timer{
   font-size: 2.5em;
   font-weight: bold;
@@ -27,23 +37,28 @@
 .area{
     margin-bottom: 1em;
     padding: 1em;
+    background-color: white;
+    border-style: solid;
+    border-color: #0086c1;
+    border-radius: 10px;
 }
 
 .quadro {
     width: 10.5em;
     height: 14em;
     padding: 10px;
-    border: 3px solid #aaaaaa;
+    border: 3px solid #0086c1;
     border-radius: 10%;
+    background-color: white;
   }
 
 .botaoAudio{
-  background-color: #ffa600;
+  background-color: #0086c1;
   color: white;
   font-weight: bold;
 }
 
-  img{
+  .imagem{
     width: 9em;
     height: 9em;
     object-fit: cover;
@@ -51,5 +66,77 @@
 
   .mensagem{
     font-size: 1em;
-    color: #ffc14f;
+    color: #0086c1;
+    text-shadow: 2px 2px 3px #ace4f5 ;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: bold;
   }
+
+  /* CROMO 
+
+  .quadro {
+    width: 15.5em;
+    height: 20.2em;
+    border: 2px solid #313131;
+    background-color: white;
+    position: relative;
+    z-index: 1;
+    background-image: 
+      linear-gradient(45deg, #808080 25%, transparent 25%),
+      linear-gradient(-45deg, #808080 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #808080 75%),
+      linear-gradient(-45deg, transparent 75%, #808080 75%);
+    background-size: 50px 50px;
+  }
+
+  .cromoBackground{
+    width: 5em;
+
+}
+
+.cromoBackground img{
+  width: 2em;
+
+}
+
+.cromoAnimal{
+    height: 7.5em;
+    position: relative;
+    z-index: 3;
+    bottom: 200px
+}
+
+.cromoNumber{
+    font-size: 1.5em;
+    color: #0086c1;
+    position: relative;
+    z-index: 3;
+    bottom: 430px;
+    right: 90px
+}
+
+.cromoDetail{
+    font-size: 1em;
+    color: #0086c1;
+    position: relative;
+    z-index: 3;
+    bottom: 233px;
+    left: 73px;
+}
+
+.cronoAnimalNameSci{
+    font-weight: 500;
+    font-style: italic;
+}
+
+.botaoAudioCromo{
+  background-color: white;
+  color: #0086c1;
+  font-weight: bold;
+  width: 3em;
+  bottom: 245px;
+  left: -75px;
+  position: relative;
+  z-index: 4;
+}
+*/

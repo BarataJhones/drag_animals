@@ -48,8 +48,6 @@ function start() {
 // Create event listeners
 playButton.addEventListener("click", start);
 
-
-
 //Drag and drop
 var contAcertos = 0;
 
@@ -67,15 +65,18 @@ function drop(ev) {
 
     //console.log(data2.slice(7));
     //console.log(ev.target.id.slice(7));
+    
+    $('#modalFinish').modal({ show: false})
 
     if (ev.target.id.slice(7) == data2.slice(7)) {
         ev.target.appendChild(document.getElementById(data2));
         contAcertos++;
-        if (contAcertos === 10) {
+        if (contAcertos === 3) {
             document.getElementById("mensagem").removeAttribute('hidden');
             clearInterval(timerInterval);
             document.getElementById("playButton").setAttribute("hidden", true);
             document.getElementById("display").setAttribute("hidden", true);
+            $('#modalFinish').modal('show');
         }
     } else {
         alert("Oops! Este não é o bichinho certo.");

@@ -26,6 +26,11 @@
 <body>
     <div class="bs-example">
         <nav class="navbar navbar-expand-md navbar-light">
+
+            <section class="d-flex justify-content-center mb-3">
+                <img src="{{asset('https://www.pngkit.com/png/full/392-3929588_kawaii-cute-edit-editing-overlay-png-dog-draw.png')}}"
+                    width="100" alt="">
+            </section>
         
             <button type="button" class="navbar-toggler custom-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <i class="fas fa-bars"></i>
@@ -36,6 +41,7 @@
                     <a href="/" class="headerText nav-item nav-link active"><i class="fas fa-home"></i> Início</a> 
                     <a href="{{ route('animals.selecao')  }}" class="headerText nav-item nav-link"><i class="fas fa-gamepad"></i> Jogar</a>
                     <a href="{{ route('dashboard')  }}" class="headerText nav-item nav-link"><i class="fas fa-user"></i> Área do usuário</a>
+                    <a href="{{ route('album')  }}" class="headerText nav-item nav-link"><i class="fas fa-book-open"></i> Meu álbum</a>
                     <a href="{{ route('rankin.main') }}" class="headerText nav-item nav-link"><i class="fas fa-trophy"></i> Pontuações</a>
                 </div>
             
@@ -62,7 +68,7 @@
                                 </li>
                                 <li>
                                     <a class="dropdown-item drop-item" href="{{ route('edit-user') }}">
-                                        <i class="fas fa-edit"></i> Editar usuaŕio
+                                        <i class="fas fa-edit"></i> Editar usuário
                                     </a>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
