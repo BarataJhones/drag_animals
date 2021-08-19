@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravelista\Comments\Commentable;
 
 class Group extends Model
 {
     use HasFactory;
+    use Commentable;
 
     protected $table = 'groups';
 
@@ -27,5 +29,9 @@ class Group extends Model
 
     public function usersGroup(){
         return $this->belongsToMany('App\Models\User');
+    }
+
+    public function rankGroup() {
+        return $this->hasMany('App\Models\Ranking');
     }
 }

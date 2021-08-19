@@ -1,10 +1,12 @@
-body{
+.titulo{
     font-family: 'Montserrat Alternates', sans-serif;
     font-weight: bold;
-}
-
-h3{
     color: #0086c1;
     text-shadow: 2px 2px 3px #ace4f5 ;
     text-align: center;
+  }
+
+  .zIndex{
+    position: relative;
+    z-index: 3;
   }

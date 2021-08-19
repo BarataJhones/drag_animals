@@ -30,13 +30,35 @@ class AnimalController extends Controller
 
     public function selecaoJogo()
     {
-        return view('telas.selecaoJogo');
+        $group = null;
+        return view('telas.selecaoJogoNormal', compact('group'));
+    }
+
+    public function selecaoJogoGrupo($id)
+    {
+        
+        if (!$group = Group::find($id)) {
+            $group = 0;
+        }
+
+        return view('telas.selecaoJogoGrupo', compact('group'));
     }
 
     public function ranking()
     {
         $rankings = Ranking::orderBy('time')->paginate(10);
         return view('telas.ranking', compact('rankings'));
+    }
+
+    public function rankingGrupo($id)
+    {
+        if (!$group = Group::find($id)) {
+            return redirect()->route('dashboard');
+        }
+
+        $rankings = Ranking::where('group_id', $group->id)->orderBy('time')->paginate(10);
+        $groupName = $group->name;
+        return view('telas.rankingGrupo', compact('rankings', 'groupName'));
     }
 
     public function album()
@@ -103,6 +125,18 @@ class AnimalController extends Controller
         $user = auth()->user();
         $data['user_id'] = $user->id;
 
+        $group = session('group');
+
+        //($group);
+
+        if ($group == null) {
+            $data['group_id'] = null;
+        } else{
+            $data['group_id'] = $group->id;
+        }
+        
+        //dd($data['group_id']);
+
         Ranking::create($data);
 
         $card = session('card');
@@ -122,11 +156,10 @@ class AnimalController extends Controller
         $user = auth()->user();
         $rankings = Ranking::where('user_id', $user->id)->orderBy('time')->paginate(3);
         $animals = Animal::where('user_id', $user->id)->orderBy('id', 'DESC')->paginate(3);
-        $groups = Group_User::where ('user_id', $user->id)->paginate(3);
+        $groups = Group_User::where('user_id', $user->id)->paginate(3);
+        $animalsCards = Animal_User::where('user_id', $user->id)->paginate(4);
 
-        //dd($animals);
-
-        return view('telas.dashboard', compact('user', 'rankings', 'animals', 'groups'));
+        return view('telas.dashboard', compact('user', 'rankings', 'animals', 'groups', 'animalsCards'));
     }
 
     public function listAnimals()

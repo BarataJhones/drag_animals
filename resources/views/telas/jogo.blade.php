@@ -8,6 +8,28 @@
 
 <section class="container section ">
 
+    <!-- Mensagem de erro -->
+    <div class="modal" id="modalError" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Oops!</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Este não é o bichinho correto. Tente novamente.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: transparent">
+                        <i class="fas fa-window-close" style="font-size: 2em; color: #ff4242"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <body class="background">
 
         <!--Área do texto inicial-->

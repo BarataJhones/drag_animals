@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 <link rel="stylesheet" href="{{ asset('css/grupo.css') }}">
 
-<body>
+<body class="background">
     @include('telas.common.header')
 
     @if (session('message'))
@@ -45,18 +45,18 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fas fa-comments"></i> Discussão
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('rankin.main') }}">
+                            <a class="nav-link" href="{{ route('ranking.grupo', $group->id) }}">
                                 <i class="fas fa-trophy"></i> Pontuações
                             </a>
                         </li>
                         <li class="nav-item" data-toggle="modal" data-target="#modalMember">
                             <a class="nav-link" href="#">
                                 <i class="fas fa-user"></i> Membros
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('animals.selecaoGrupo', $group->id) }}" style="color: #50ce37 !important">
+                                <i class="fas fa-gamepad"></i> Jogar
                             </a>
                         </li>
                     </ul>
@@ -72,27 +72,7 @@
     </div>
 
     <div class="container">
-
-        <div class="postSection">
-            <?php  $avatar = Auth::user()->avatar; ?>
-
-            <div class="row">
-                <div class="col">
-                    <img src="{{Storage::disk('s3')->url($avatar)  }}" class="userAvatarComment">
-                </div>
-
-                <div class="col-10">
-                    <textarea class="form-control" id="nome" type="text" name="name"
-                        placeholder="Escreva algo..."></textarea>
-                </div>
-
-                <div class="col">
-                    <button class="btn btn-outline-primary my-2 my-sm-0" style="background-color: "
-                        type="submit">Postar</button>
-                </div>
-            </div>
-        </div>
-
+        <?php  $avatar = Auth::user()->avatar; ?>
 
         <!-- Modal -->
 
@@ -160,7 +140,8 @@
                                 @csrf
 
                                 <img src="{{Storage::disk('s3')->url($user->avatar)  }}" class="userAvatarComment">
-                                {{$user->id}} {{$user->name}}
+                                
+                                {{$user->name}}
 
                                 <input type="text" name="id" hidden value="{{$user->id}}">
 
@@ -177,64 +158,7 @@
             </div>
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div>
-            <div class="commentsSection">
-
-                <div>
-                    <img src="{{Storage::disk('s3')->url($avatar)  }}" class="userAvatarComment">
-                    <strong class="commentUser">Gustavo</strong> publicou: <br>
-                    13/07/2021
-                    <p class="commentContent">Bom dia. O desafio da semana é conseguir 10 figurinhas de
-                        mamíferos
-                        até
-                        segunda-feira.</p>
-                </div>
-
-            </div>
-
-            <div class="commentsSection">
-
-                <div>
-                    <img src="{{Storage::disk('s3')->url($avatar)  }}" class="userAvatarComment">
-                    <strong class="commentUser">Gustavo</strong> publicou: <br>
-                    13/07/2021
-                    <p class="commentContent">adasdasdasdasdasdasdasdsssssssssssssss das dsd asda sas as dsd asda sas as
-                        dsd asda sas as
-                        dsd asda sas as dsd asda sas as dsd asda sas as dsd asda sas as dsd asda sas as dsd asda sas as
-                        dsd asda sas as
-                        dsd asda sas as dsd asda sas as dsd asda sas as dsd asda sas as dsd asda sas as dsd asda sas as
-                        dsd asda sas as
-                        dsd asda sas as dsd asda sas as dsd asda sas as dsd asda sas as dsd asda sas as dsd asda sas as
-                        dsd asda sas as
-                        dsd asda sas as dsd asda sas as dsd asda sas as dsd asda sas as dsd asda sas as dsd asda sas as
-                        dsd asda sas as
-                        dsd asda sas as dsd asda sas as dsd asda sas as dsd asda sas as dsd asda sas as dsd asda sas as
-                        dsd asda sas as
-                        dsd asda sas as dsd asda sas as dsd asda sas as dsd asda sas as dsd asda sas as dsd asda sas
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
+        @comments(['model' => $group])
 
     </div>
 

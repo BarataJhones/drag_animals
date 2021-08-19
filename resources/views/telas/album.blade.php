@@ -16,8 +16,6 @@
                 Meu álbum
             </h3> <br>
 
-            <div class="">
-
                 <div class="row align-items-end" style="margin-bottom: 2em">
 
                     <!-------- CROMO ESPECIAL
@@ -38,10 +36,10 @@
                     ---------------------->
 
                     <div class="col">
-                        <div class="quadroDescricaoType">
-                            <p class="text-justify">
-                                Este é o seu álbum de animais. Cada vez que você completa uma rodada do jogo, você ganha uma figurinha de um dos bichinhos que apareceram no jogo.
-                            </p>
+                        <h3>
+                            Este é o seu álbum de animais. Cada vez que você completa uma rodada do jogo, você ganha uma figurinha de um dos bichinhos que você aprendeu o nome em inglês.
+                            Aqui você pode visualizar o nome do animal em português, inglês e o seu nome científico, além de ouvir a pronúncia em inglês.
+                        </h3>
                         </div>
                     </div>
                     <!------------------------------------------------------------------>
@@ -66,7 +64,7 @@
 
                                         <div class="cromoSection">
 
-                                            <img class="cromoBackground" src="img/cromo-fundo.png" alt="">
+                                            <img class="cromoBackground" src="{{ Storage::disk('s3')->url('img-cromo-fundo.png') }}" alt="">
                                             <img class="cromoAnimal"
                                                 src="{{ Storage::disk('s3')->url($animalsCard->animal->image) }}" alt="">
 

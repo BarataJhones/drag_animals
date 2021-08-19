@@ -13,6 +13,7 @@ class Ranking extends Model
 
     protected $fillable = [
         'user_id',
+        'group_id',
         'time',
         'game_type',
     ];
@@ -20,5 +21,10 @@ class Ranking extends Model
     public function user()
     {
         return $this->belongsTo(User :: class, 'user_id');
+    }
+
+    public function groupRank()
+    {
+        return $this->belongsTo(Group :: class, 'group_id');
     }
 }

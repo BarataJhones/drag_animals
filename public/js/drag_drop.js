@@ -79,7 +79,7 @@ function drop(ev) {
             $('#modalFinish').modal('show');
         }
     } else {
-        alert("Oops! Este não é o bichinho certo.");
+        $('#modalError').modal('show');
     }
 }
 

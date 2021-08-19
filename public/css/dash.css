@@ -1,3 +1,32 @@
+.userData{
+  padding: 1em;
+  background-color: white;
+}
+
+.avatarDash{
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.botaoEdit{
+  width: 2em;
+  height: 2em;
+  border-radius: 50% !important;
+  background-color: #f0f2f5 !important;
+  position: relative;
+  bottom: -110px;
+  left: 157px;
+  font-size: 1.5em!important;
+}
+
+.sideArea{
+  margin-bottom: 1em;
+  background-color: white;
+  border-radius: 7px;
+}
+
 .tabela{
   border-spacing: 2px;
   border-collapse: collapse;
@@ -17,6 +46,20 @@
   text-align: left;
 }
 
+.icons{
+  margin-right: 12px !important;
+}
+
+.groupArea{
+  margin-bottom: 1em;
+}
+.groupImage{
+  width: 3em;
+  height: 3em;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
 .flex{
   display: flex!important;
 }
@@ -29,4 +72,66 @@ h1{
   .flex{
     display: block!important;
   }
+}
+
+/* Figurinha */
+.font{
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: bold;
+}
+
+.quadro{
+  width: 15.5em;
+  height: 20.2em;
+  border: 1px solid;
+  border-radius: 3px;
+  height: 20em;
+}
+
+.cromoBackground{
+  width: 15em;
+  position: relative;
+  z-index:3;
+}
+
+.cromoAnimal{
+  height: 7.5em;
+  position: relative;
+  z-index: 3;
+  bottom: 200px
+}
+
+.cromoNumber{
+  font-size: 1.5em;
+  color: #0086c1;
+  position: relative;
+  z-index: 3;
+  bottom: 430px;
+  right: 90px
+}
+
+.cromoDetail{
+  font-size: 1em;
+  color: #0086c1;
+  position: relative;
+  z-index: 3;
+  bottom: 250px;
+  left: 55px;
+}
+
+.cronoAnimalNameSci{
+  font-weight: 500;
+  font-style: italic;
+  font-size: 0.5em;
+}
+
+.botaoAudio{
+  background-color: white !important;
+  color: #0086c1 !important;
+  font-weight: bold;
+  width: 3em;
+  bottom: 305px;
+  left: -75px;
+  position: relative;
+  z-index: 4;
 }

@@ -1,5 +1,4 @@
 body{
-    background-color: #f0f2f5 !important;
     padding-bottom: 3em;
 }
 
@@ -41,24 +40,12 @@ li a{
     margin-bottom: 2em;
 }
 
-.commentsSection{
-    margin-top: 2em;
-    background-color:white;
-    padding: 2em;
-    border-radius: 10px;
-    padding: 1em;
-    margin-top: 2em;
-}
-
 .userAvatarComment{
     width: 3em;
     height: 3em;
     border-radius: 50%;
     object-fit: cover;
 }
-
-.commentUser{margin-left: 1em; color: #00AEEF;}
-.commentContent{margin-left: 4.3em;}
 
 .field{
     margin-bottom: 1em;

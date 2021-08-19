@@ -1,11 +1,9 @@
-
 <title>Drag Animals</title>
 <link rel="shortcut icon"
     href="https://www.pngkit.com/png/full/392-3929588_kawaii-cute-edit-editing-overlay-png-dog-draw.png"
     type="image/x-icon">
 <link rel="stylesheet" href="{{asset('css/main.css')}}">
 <link rel="stylesheet" href="{{asset('css/index.css')}}">
-
 
 <body class="background">
     @include ('telas.common.header')
@@ -28,28 +26,28 @@
 
                     <div class="col quadro-jogar d-flex justify-content-center">
                         <a href="{{ route('animals.selecao') }}">
-                        <img class="quadro-imagem center-block" src="storage/img-jogar.png" alt="">
+                        <img class="quadro-imagem center-block" src="{{ Storage::disk('s3')->url('img-jogar.png') }}" alt="">
                         <div class="botao"><i class="fas fa-gamepad"></i> Jogar</div>
                         </a>
                     </div>
 
                     <div class="col quadro-jogar d-flex justify-content-center">
                         <a href="{{ route('rankin.main') }}">
-                        <img class="quadro-imagem center-block" src="storage/img-ranking.png" alt="">
+                        <img class="quadro-imagem center-block" src="{{ Storage::disk('s3')->url('img-ranking.png') }}" alt="">
                         <div class="botao"><i class="fas fa-trophy"></i> Pontuações</div>
                         </a>
                     </div>
                     
                     <div class="col quadro-jogar d-flex justify-content-center">
                         <a href="{{ route('dashboard') }}">
-                        <img class="quadro-imagem center-block" src="storage/img-dashboard.png" alt="">
+                        <img class="quadro-imagem center-block" src="{{ Storage::disk('s3')->url('img-dashboard.png') }}" alt="">
                         <div class="botao"><i class="fas fa-user"></i> Área do usuário</div>
                         </a>
                     </div>
 
                     <div class="col quadro-jogar d-flex justify-content-center">
                         <a href="{{ route('album') }}">
-                        <img class="quadro-imagem center-block" src="storage/img-album.png" alt="">
+                        <img class="quadro-imagem center-block" src="{{ Storage::disk('s3')->url('img-album.png') }}" alt="">
                         <div class="botao"><i class="fas fa-book-open"></i> Meu álbum</div>
                         </a>
                     </div>
