@@ -1,118 +1,249 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Dashboard</title>
-        <link rel="shortcut icon" href="https://www.pngkit.com/png/full/392-3929588_kawaii-cute-edit-editing-overlay-png-dog-draw.png" type="image/x-icon">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <title>Dashboard</title>
+    <link rel="shortcut icon"
+        href="https://www.pngkit.com/png/full/392-3929588_kawaii-cute-edit-editing-overlay-png-dog-draw.png"
+        type="image/x-icon">
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/dash.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/ranking.css') }}">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-    </head>
-    <body>
-        @include('telas.common.header')
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('css/dash.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('css/ranking.css') }}">-->
 
-        @if (session('message'))
-        <div class="mt-3 mx-3 alert alert-success fade show" role="alert">
-            {{ session('message') }}
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+</head>
+
+<body class="background">
+    @include('telas.common.header')
+
+    @if (session('message'))
+    <div class="mt-3 mx-3 alert alert-success fade show" role="alert">
+        {{ session('message') }}
+    </div>
+    @endif
+
+    <div class="container-fluid userData">
+
+        <div class="row">
+            <div class="col d-flex justify-content-center"> <!--  style="margin-right: 2.5em" -->
+                <!--<button class="btn botaoEdit">
+                    <i class="fas fa-pencil-alt"></i>
+                </button> -->
+                <img src="{{ Storage::disk('s3')->url(Auth::user()->avatar) }}" class="avatarDash">
+            </div>
         </div>
-        @endif
 
-        <div class="d-flex justify-content-center pt-5">
-            <h1 class="text-center">Dashboard</h1>
+        <div class="row text-center">
+            <div class="col">
+                <h2>{{Auth::user()->name}}</h2>
+            </div>
         </div>
-        <div class="container-fluid flex">
-            <div class="col pt-5 px-2">
-                <div class="card py-3 px-3" style="border: 4px solid #fcd7a4; border-radius: 10px">
-                    <div class="d-flex py-2 justify-content-center">
-                        <h1>Minhas pontuações</h1>
+
+    </div>
+
+    <div class="container-fluid flex">
+
+        <div class="col-3 py-3 px-3">
+
+            <div class="sideArea justify-content-left">
+                <div class="row d-flex py-2">
+                    <div class="col d-flex justify-content-end">
+                        <h5>Meus Dados</h5>
                     </div>
-                    <div class="d-flex py-2 px-4 justify-content-center">
-                        <table class="tabela fundo w-100 mb-2">
-                            <tbody>
-                                @foreach ($rankings as $ranking)
+                    <div class="col-5 d-flex justify-content-center">
+                        <a href="{{ route('edit-user') }}">
+                            <i class="fas fa-pencil-alt"></i> Editar
+                        </a>
+                    </div>
+                </div>
+
+                <div style="padding: 1em;">
+                    <i class="fas fa-envelope icons"></i>{{Auth::user()->email}}<br>
+                    <i class="fas fa-birthday-cake icons"></i>{{Auth::user()->birthday}}<br>
+                    <i class="fas fa-genderless icons"></i>
+
+                    @switch($gender = Auth::user()->gender)
+                        @case($gender == "female")
+                            Feminino
+                            @break
+                        @case($gender == "male")
+                            Masculino
+                            @break
+                        @case($gender == "nonbinary")
+                            Não-binário
+                            @break
+                        @case($gender == "other")
+                            Outro
+                            @break
+                        @default
+                    @endswitch
+                    <br>
+
+                    <i class="fas fa-school icons"></i>{{Auth::user()->institution}}<br>
+                    <i class="fas fa-graduation-cap icons"></i>{{Auth::user()->grade}}
+                </div>
+
+            </div>
+
+            <div class="sideArea">
+                <div class="row d-flex py-2">
+                    <div class="col d-flex justify-content-end">
+                        <h5>Meus Grupos</h5>
+                    </div>
+                    <div class="col-5 d-flex justify-content-center">
+                        <a href="{{ route('group.create') }}"> 
+                            <i class="fas fa-plus"></i> Criar grupo
+                        </a>
+                    </div>
+                </div>
+
+
+                <table class="tabela w-100 mb-2">
+                    <tbody>
+                        @foreach ($groups as $group)
+                        <tr>
+                            <td>
+                                <a href="{{ route('group.viewGroup', $group->group->id) }}">
+                                    <img class="groupImage" src="{{Storage::disk('s3')->url($group->group->image)}}"
+                                        alt=""> {{$group->group->name}}
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-5 py-3 px-3">
+            <div class="sideArea">
+                <div class="row d-flex py-2">
+                    <div class="col d-flex justify-content-end">
+                        <h5>Minhas últimas figurinhas</h5>
+                    </div>
+                    <div class="col-5 d-flex justify-content-center">
+                        <a href="{{ route('album')  }}">
+                            <i class="fas fa-book-open"></i> Meu álbum
+                        </a>
+                    </div>
+                </div>
+
+                <div class="container font">
+                    <div class="row justify-content-around">
+
+                        @foreach ($animalsCards as $animalsCard)
+
+                            <div class="col">
+
+                                <div class="quadro text-center" style="margin-bottom: 1em">
+                                    
+                                    <img class="cromoBackground" src="{{ Storage::disk('s3')->url('img-cromo-fundo.png') }}" alt="">
+                                    <img class="cromoAnimal"
+                                        src="{{ Storage::disk('s3')->url($animalsCard->animal->image) }}" alt="">
+
+                                    <p class="cromoNumber">{{ $animalsCard->animal->id }}</p>
+
+                                    <div class="cromoDetail">
+                                        {{$animalsCard->animal->nameEnglish}}<br>
+                                        {{$animalsCard->animal->namePort}}<br>
+                                        <p class="cronoAnimalNameSci">{{$animalsCard->animal->nameSci}}</p>
+                                    </div>
+
+                                    <button type="button" value="PLAY" onclick="play('audio_{{ $animalsCard->animal->id }}')"
+                                        class="btn botaoAudio" style="margin-bottom: 1em; font-size: 0.8em"><i class="fas fa-volume-up"></i>
+                                    </button>
+                                    <audio id="audio_{{ $animalsCard->animal->id }}" src="{{ Storage::disk('s3')->url($animalsCard->animal->audio) }}"></audio> 
+                                    
+                                </div>
+
+                            </div>
+                        
+                        @endforeach
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="col-4 py-3 px-3">
+            <div class="sideArea">
+                <div class="row d-flex py-2">
+                    <div class="col d-flex justify-content-end">
+                        <h5>Minhas Pontuações</h5>
+                    </div>
+                    <div class="col-5 d-flex justify-content-center">
+                        <a href="{{ route('rankin.main')  }}">
+                            <i class="fas fa-trophy"></i> Ranking geral
+                        </a>
+                    </div>
+                </div>
+
+                    <table class="table table-striped" style="background-color: white">
+                        @php $position = 1 @endphp
+                        <thead class="fundo">
+                            <tr>
+                                <th scope="col">Posição</th>
+
+                                <th scope="col">Tempo</th>
+                                <th scope="col">Categoria</th>
+    
+                                <th scope="col">Grupo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($rankings as $ranking)
                                 <tr>
-                                    <td>{{ $ranking->user->name }}</td>
-                                    <td>{{ $ranking->time }}</td>
+                                    <th scope="row">{{ $position }}</th>
+
+                                    <td><b>{{ $ranking->time }}</b></td>
+                                    <td>{{ $ranking->game_type }}</td>
+                
+                                    @if ($ranking->group_id !=null)
+                                        <td>{{ $ranking->groupRank->name  }}</td>
+                                    @else
+                                        <td></td>
+                                    @endif
+            
+                                    @php $position++ @endphp
                                 </tr>
                             @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <div class="d-flex justify-content-center">
-                        {{ $rankings->links() }}
-                    </div>
+                        </tbody>
+                    </table>
 
-                    <div class="w-100 pt-1 px-4 pb-2">
-                        <a class="button-orange btn btn-lg w-100" href="{{ route('rankin.main') }}" style="border-radius: 40px;">
-                            Ver todas as pontuações
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col pt-5 px-2 pb-3">
-                <div class="w-100 pb-4">
-                    <button class="button-orange btn btn-lg w-100" type="button" style="border-radius: 40px;">
-                        Jogar
-                    </button>
-                </div>
-                <div class="card py-3 px-3" style="border: 4px solid #fcd7a4; border-radius: 10px">
-                    <div class="d-flex py-2 justify-content-center">
-                        <h1>Meus animais</h1>
-                    </div>
-                    <div style="background-color: rgb(252, 227, 191); border-radius: 10px">
-                        <div class="font-sans d-flex antialiased py-4 px-2 flex-wrap justify-content-center">
-                            @foreach ( $animals as $animal)
-                                <section class="d-flex flex-column px-4 justify-content-center text-center">
-                                    <div class="card justify-content-center d-block my-2" style="width: 12rem">
-                                        <img class="px-2 py-2" src="{{ Storage::disk('s3')->url($animal->image) }}" width="120" alt="">
-
-                                        <div class="card-body">
-                                        <h5 style="margin-bottom: 0!important">
-                                            <strong>{{ $animal->name }}</strong>
-                                        </h5>
-                                        </div>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">{{ $animal->class }}</li>
-                                            <li class="list-group-item">{{ $animal->order }}</li>
-                                            <li class="list-group-item">{{ $animal->habitat }}</li>
-                                        </ul>
-
-                                        <form action="{{ route('animal.destroy', $animal->id) }}" method="post">
-                                            @csrf
-                                            <input type="hidden" name="_method" value="DELETE">
-                                            <button class="btn" style="color: red">
-                                                Deletar <i class="fas fa-trash" ></i>
-                                            </button>
-                                        </form>
-                                        
-                                    </div>
-                                    
-                                </section>
-                            @endforeach
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            {{ $animals->links() }}
-                        </div>
-                    </div>
-                    <div class="w-100 pt-4 pb-2">
-                        <a class="btn button-orange btn-lg w-100" href="{{ route('animals.register') }}" style="border-radius: 40px">
-                            Adicionar novo animal
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
-    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+</body>
+
 </html>

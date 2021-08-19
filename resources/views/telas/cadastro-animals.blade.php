@@ -40,9 +40,20 @@
                 </div>
         
                 <div class="pb-4">
-                    <label for="nome">Nome do animal em <b>inglês</b></label> 
-                    <input class="form-control" id="nome" type="text" name="name">
+                    <label for="nome">Nome do animal em <b>portugês</b></label> 
+                    <input class="form-control" id="nome" type="text" name="namePort">
                 </div>
+
+                <div class="pb-4">
+                    <label for="nome">Nome do animal em <b>inglês</b></label> 
+                    <input class="form-control" id="nome" type="text" name="nameEnglish">
+                </div>
+
+                <div class="pb-4">
+                    <label for="nome">Nome <b>científico </b>do animal</label> 
+                    <input class="form-control" id="nome" type="text" name="nameSci">
+                </div>
+
                 <div class="flex pb-4">
                     <div class="w-100 mr-2">
                         <label for="imagem">Imagem</label> 

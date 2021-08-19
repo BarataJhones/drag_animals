@@ -6,10 +6,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravelista\Comments\Commenter;
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+    use Notifiable, Commenter;
 
     /**
      * The attributes that are mass assignable.
@@ -53,4 +55,17 @@ class User extends Authenticatable
     public function rankings() {
         return $this->hasMany('App\Models\Ranking');
     }
+
+    public function animalsAlbum(){
+        return $this->belongsToMany('App\Models\Animal');
+    }
+
+    public function groupAdm(){
+        return $this->hasMany('App\Models\Group');
+    }
+
+    public function groupUsers(){
+        return $this->belongsToMany('App\Models\Group');
+    }
+
 }

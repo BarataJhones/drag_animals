@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ranking extends Model
+class Animal_User extends Model
 {
     use HasFactory;
 
-    protected $table = 'rankings';
+    protected $table = 'animal_user';
 
     protected $fillable = [
+        'animal_id',
         'user_id',
-        'group_id',
-        'time',
-        'game_type',
+        'created_at' => 'date:D-m-y'
     ];
 
     public function user()
@@ -23,8 +22,8 @@ class Ranking extends Model
         return $this->belongsTo(User :: class, 'user_id');
     }
 
-    public function groupRank()
+    public function animal()
     {
-        return $this->belongsTo(Group :: class, 'group_id');
+        return $this->belongsTo(Animal :: class, 'animal_id');
     }
 }

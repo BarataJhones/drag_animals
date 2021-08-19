@@ -1,12 +1,20 @@
 .bs-example {
     padding-top: 1em;
-    background-color: #ef8700;
+    background-color: #0086c1;
 }
 
 .headerText{
     font-size: 1.2em;
     color: white !important;
+    background-color: #69afac;
+    font-weight: bold;
+    margin-left: 0.5em;
+    border-radius: 10px;
 }
+
+.headerText:hover {
+    background-color: #7bb7c9;
+  }
 
 .navbar-toggler{background-color: white !important;}
 
@@ -17,7 +25,7 @@
     object-fit: cover;
 }
 
-.dropdown-menu, .dropdown-menu a{ color: #d6761b !important;}
+.dropdown-menu, .dropdown-menu a{ color: #0086c1 !important;}
 .dropdown-item .drop-item{font-size: 1em !important;}
 .dropdown-divider{
     height: 0!important;
@@ -31,7 +39,7 @@
 }
 
 /*Customização do botão navibar mobile*/
-.custom-toggler.navbar-toggler { border-color: #ef8700 !important;}
+.custom-toggler.navbar-toggler { border-color: #0086c1 !important;}
 .fa-bars{color: #ef8700;}
 /**/
 

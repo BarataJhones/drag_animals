@@ -12,7 +12,10 @@ class Animal extends Model
     protected $table = 'animals';
 
     protected $fillable = [
-        'name',
+        'id',
+        'nameEnglish',
+        'namePort',
+        'nameSci',
         'user_id',
         'image',
         'audio',
@@ -25,5 +28,9 @@ class Animal extends Model
     public function user()
     {
         return $this->belongsTo(User :: class, 'user_id');
+    }
+
+    public function userAlbum(){
+        return $this->belongsToMany('App\Models\User');
     }
 }

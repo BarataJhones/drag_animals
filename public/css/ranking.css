@@ -1,3 +1,10 @@
-.fundo{
-    background-color: #ffdfb6 !important;
+body{
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: bold;
+}
+h3{
+    color: #0086c1 !important;
+    text-shadow: 2px 2px 3px #ace4f5 ;
+    text-align: center;
+    font-weight: bold;
 }

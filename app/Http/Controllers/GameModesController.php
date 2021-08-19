@@ -4,161 +4,598 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Animal;
+
+use App\Models\Group;
+use App\Models\Animal_User;
 use App\Models\Ranking;
 
 class GameModesController extends Controller
 {
-    public function jogoClassAve()
+    public function jogoClassAve($id)
     {
-        $animals = Animal::where('class', "Ave")->inRandomOrder()->paginate(10);
-
-        $quadros = $animals->shuffle();
+        $user = auth()->user();
 
         $gameType = "Ave";
 
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
+        if (!$group = Group::find($id)) {
+            $group = null;
+            $id = 0;
+        }
+
+        $animals = Animal::where('class', "Ave")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $quadros = $animals->shuffle();
+        $animalSelecs = $animals->shuffle();
+
+        if ($user != null) {
+            $histories = Animal_User::where('user_id', $user->id)->get();
+
+            if (Animal_User::exists()) {
+
+                foreach ($animalSelecs as $key => $animalSelec) {
+                    foreach ($histories as $historie) {
+                        if ($animalSelec->id == $historie->animal_id) {
+                            unset($animalSelecs[$key]);
+                        }
+                    }
+                    $animalCard = $animalSelecs->shuffle()->first();
+                }
+            } else {
+                $animalCard = $animalSelecs->shuffle()->first();
+            }
+        } else {
+            $animalCard = null;
+        }
+
+
+        session(['card' => $animalCard]);
+        session(['group' => $group]);
+
+        return view('telas.jogo', compact('animals', 'quadros', 'animalCard', "gameType", 'group'));
     }
 
-    public function jogoClassAnfibio()
+    public function jogoClassAnfibio($id)
     {
-        $animals = Animal::where('class', "Anfíbio")->inRandomOrder()->paginate(10);
-
-        $quadros = $animals->shuffle();
+        $user = auth()->user();
 
         $gameType = "Anfíbio";
 
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
+        if (!$group = Group::find($id)) {
+            $group = null;
+            $id = 0;
+        }
+
+        $animals = Animal::where('class', "Anfíbio")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $quadros = $animals->shuffle();
+        $animalSelecs = $animals->shuffle();
+
+        if ($user != null) {
+            $histories = Animal_User::where('user_id', $user->id)->get();
+
+            if (Animal_User::exists()) {
+
+                foreach ($animalSelecs as $key => $animalSelec) {
+                    foreach ($histories as $historie) {
+                        if ($animalSelec->id == $historie->animal_id) {
+                            unset($animalSelecs[$key]);
+                        }
+                    }
+                    $animalCard = $animalSelecs->shuffle()->first();
+                }
+            } else {
+                $animalCard = $animalSelecs->shuffle()->first();
+            }
+        } else {
+            $animalCard = null;
+        }
+
+
+        session(['card' => $animalCard]);
+        session(['group' => $group]);
+
+        return view('telas.jogo', compact('animals', 'quadros', 'animalCard', "gameType", 'group'));
     }
 
-    public function jogoClassMamifero()
+    public function jogoClassMamifero($id)
     {
-        $animals = Animal::where('class', "Mamífero")->inRandomOrder()->paginate(10);
-
-        $quadros = $animals->shuffle();
+        $user = auth()->user();
 
         $gameType = "Mamífero";
 
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
+        if (!$group = Group::find($id)) {
+            $group = null;
+            $id = 0;
+        }
+
+        $animals = Animal::where('class', "Mamífero")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $quadros = $animals->shuffle();
+        $animalSelecs = $animals->shuffle();
+
+        if ($user != null) {
+            $histories = Animal_User::where('user_id', $user->id)->get();
+
+            if (Animal_User::exists()) {
+
+                foreach ($animalSelecs as $key => $animalSelec) {
+                    foreach ($histories as $historie) {
+                        if ($animalSelec->id == $historie->animal_id) {
+                            unset($animalSelecs[$key]);
+                        }
+                    }
+                    $animalCard = $animalSelecs->shuffle()->first();
+                }
+            } else {
+                $animalCard = $animalSelecs->shuffle()->first();
+            }
+        }else{
+            $animalCard = null;
+        }
+
+
+        session(['card' => $animalCard]);
+        session(['group' => $group]);
+
+        return view('telas.jogo', compact('animals', 'quadros', 'animalCard', "gameType", 'group'));
     }
 
-    public function jogoClassInseto()
+    public function jogoClassInseto($id)
     {
-        $animals = Animal::where('class', "Inseto")->inRandomOrder()->paginate(10);
-
-        $quadros = $animals->shuffle();
+        $user = auth()->user();
 
         $gameType = "Inseto";
 
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
+        if (!$group = Group::find($id)) {
+            $group = null;
+            $id = 0;
+        }
+
+        $animals = Animal::where('class', "Inseto")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $quadros = $animals->shuffle();
+        $animalSelecs = $animals->shuffle();
+
+        if ($user != null) {
+            $histories = Animal_User::where('user_id', $user->id)->get();
+
+            if (Animal_User::exists()) {
+
+                foreach ($animalSelecs as $key => $animalSelec) {
+                    foreach ($histories as $historie) {
+                        if ($animalSelec->id == $historie->animal_id) {
+                            unset($animalSelecs[$key]);
+                        }
+                    }
+                    $animalCard = $animalSelecs->shuffle()->first();
+                }
+            } else {
+                $animalCard = $animalSelecs->shuffle()->first();
+            }
+        }else{
+            $animalCard = null;
+        }
+
+
+        session(['card' => $animalCard]);
+        session(['group' => $group]);
+
+        return view('telas.jogo', compact('animals', 'quadros', 'animalCard', "gameType", 'group'));
     }
 
-    public function jogoClassPeixe()
+    public function jogoClassPeixe($id)
     {
-        $animals = Animal::where('class', "Peixe")->inRandomOrder()->paginate(10);
-
-        $quadros = $animals->shuffle();
+        $user = auth()->user();
 
         $gameType = "Peixe";
 
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
+        if (!$group = Group::find($id)) {
+            $group = null;
+            $id = 0;
+        }
+
+        $animals = Animal::where('class', "Peixe")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $quadros = $animals->shuffle();
+        $animalSelecs = $animals->shuffle();
+
+        if ($user != null) {
+            $histories = Animal_User::where('user_id', $user->id)->get();
+
+            if (Animal_User::exists()) {
+
+                foreach ($animalSelecs as $key => $animalSelec) {
+                    foreach ($histories as $historie) {
+                        if ($animalSelec->id == $historie->animal_id) {
+                            unset($animalSelecs[$key]);
+                        }
+                    }
+                    $animalCard = $animalSelecs->shuffle()->first();
+                }
+            } else {
+                $animalCard = $animalSelecs->shuffle()->first();
+            }
+        }else{
+            $animalCard = null;
+        }
+
+
+        session(['card' => $animalCard]);
+        session(['group' => $group]);
+
+        return view('telas.jogo', compact('animals', 'quadros', 'animalCard', "gameType", 'group'));
     }
 
-    public function jogoClassReptil()
+    public function jogoClassReptil($id)
     {
-        $animals = Animal::where('class', "Réptil/Anfíbio")->inRandomOrder()->paginate(10);
-
-        $quadros = $animals->shuffle();
+        $user = auth()->user();
 
         $gameType = "Réptil/Anfíbio";
 
-        return view('telas.jogo', compact('animals', 'quadros', 'gameType'));
+        if (!$group = Group::find($id)) {
+            $group = null;
+            $id = 0;
+        }
+
+        $animals = Animal::where('class', "Réptil/Anfíbio")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $quadros = $animals->shuffle();
+        $animalSelecs = $animals->shuffle();
+
+        if ($user != null) {
+            $histories = Animal_User::where('user_id', $user->id)->get();
+
+            if (Animal_User::exists()) {
+
+                foreach ($animalSelecs as $key => $animalSelec) {
+                    foreach ($histories as $historie) {
+                        if ($animalSelec->id == $historie->animal_id) {
+                            unset($animalSelecs[$key]);
+                        }
+                    }
+                    $animalCard = $animalSelecs->shuffle()->first();
+                }
+            } else {
+                $animalCard = $animalSelecs->shuffle()->first();
+            }
+        }else{
+            $animalCard = null;
+        }
+
+
+        session(['card' => $animalCard]);
+        session(['group' => $group]);
+
+        return view('telas.jogo', compact('animals', 'quadros', 'animalCard', "gameType", 'group'));
     }
 
-    public function jogoOrderCarnivoro()
+    public function jogoOrderCarnivoro($id)
     {
-        $animals = Animal::where('order', "Carnívoro")->inRandomOrder()->paginate(10);
-
-        $quadros = $animals->shuffle();
+        $user = auth()->user();
 
         $gameType = "Carnívoro";
 
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
+        if (!$group = Group::find($id)) {
+            $group = null;
+            $id = 0;
+        }
+
+        $animals = Animal::where('order', "Carnívoro")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $quadros = $animals->shuffle();
+        $animalSelecs = $animals->shuffle();
+
+        if ($user != null) {
+            $histories = Animal_User::where('user_id', $user->id)->get();
+
+            if (Animal_User::exists()) {
+
+                foreach ($animalSelecs as $key => $animalSelec) {
+                    foreach ($histories as $historie) {
+                        if ($animalSelec->id == $historie->animal_id) {
+                            unset($animalSelecs[$key]);
+                        }
+                    }
+                    $animalCard = $animalSelecs->shuffle()->first();
+                }
+            } else {
+                $animalCard = $animalSelecs->shuffle()->first();
+            }
+        }else{
+            $animalCard = null;
+        }
+
+
+        session(['card' => $animalCard]);
+        session(['group' => $group]);
+
+        return view('telas.jogo', compact('animals', 'quadros', 'animalCard', "gameType", 'group'));
     }
 
-    public function jogoOrderHerbivoro()
+    public function jogoOrderHerbivoro($id)
     {
-        $animals = Animal::where('order', "Herbívoro")->inRandomOrder()->paginate(10);
-
-        $quadros = $animals->shuffle();
+        $user = auth()->user();
 
         $gameType = "Herbívoro";
 
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
+        if (!$group = Group::find($id)) {
+            $group = null;
+            $id = 0;
+        }
+
+        $animals = Animal::where('order', "Herbívoro")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $quadros = $animals->shuffle();
+        $animalSelecs = $animals->shuffle();
+
+        if ($user != null) {
+            $histories = Animal_User::where('user_id', $user->id)->get();
+
+            if (Animal_User::exists()) {
+
+                foreach ($animalSelecs as $key => $animalSelec) {
+                    foreach ($histories as $historie) {
+                        if ($animalSelec->id == $historie->animal_id) {
+                            unset($animalSelecs[$key]);
+                        }
+                    }
+                    $animalCard = $animalSelecs->shuffle()->first();
+                }
+            } else {
+                $animalCard = $animalSelecs->shuffle()->first();
+            }
+        }else{
+            $animalCard = null;
+        }
+
+
+        session(['card' => $animalCard]);
+        session(['group' => $group]);
+
+        return view('telas.jogo', compact('animals', 'quadros', 'animalCard', "gameType", 'group'));
     }
 
-    public function jogoOrderOnivoro()
+    public function jogoOrderOnivoro($id)
     {
-        $animals = Animal::where('order', "Onívoro")->inRandomOrder()->paginate(10);
-
-        $quadros = $animals->shuffle();
+        $user = auth()->user();
 
         $gameType = "Onívoro";
 
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
+        if (!$group = Group::find($id)) {
+            $group = null;
+            $id = 0;
+        }
+
+        $animals = Animal::where('order', "Onívoro")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $quadros = $animals->shuffle();
+        $animalSelecs = $animals->shuffle();
+
+        if ($user != null) {
+            $histories = Animal_User::where('user_id', $user->id)->get();
+
+            if (Animal_User::exists()) {
+
+                foreach ($animalSelecs as $key => $animalSelec) {
+                    foreach ($histories as $historie) {
+                        if ($animalSelec->id == $historie->animal_id) {
+                            unset($animalSelecs[$key]);
+                        }
+                    }
+                    $animalCard = $animalSelecs->shuffle()->first();
+                }
+            } else {
+                $animalCard = $animalSelecs->shuffle()->first();
+            }
+        }else{
+            $animalCard = null;
+        }
+
+
+        session(['card' => $animalCard]);
+        session(['group' => $group]);
+
+        return view('telas.jogo', compact('animals', 'quadros', 'animalCard', "gameType", 'group'));
     }
 
-    public function jogoHabitatAereo()
+    public function jogoHabitatAereo($id)
     {
-        $animals = Animal::where('habitat', "Aéreo")->inRandomOrder()->paginate(10);
-
-        $quadros = $animals->shuffle();
+        $user = auth()->user();
 
         $gameType = "Aéreo";
 
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
+        if (!$group = Group::find($id)) {
+            $group = null;
+            $id = 0;
+        }
+
+        $animals = Animal::where('habitat', "Aéreo")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $quadros = $animals->shuffle();
+        $animalSelecs = $animals->shuffle();
+
+        if ($user != null) {
+            $histories = Animal_User::where('user_id', $user->id)->get();
+
+            if (Animal_User::exists()) {
+
+                foreach ($animalSelecs as $key => $animalSelec) {
+                    foreach ($histories as $historie) {
+                        if ($animalSelec->id == $historie->animal_id) {
+                            unset($animalSelecs[$key]);
+                        }
+                    }
+                    $animalCard = $animalSelecs->shuffle()->first();
+                }
+            } else {
+                $animalCard = $animalSelecs->shuffle()->first();
+            }
+        }else{
+            $animalCard = null;
+        }
+
+
+        session(['card' => $animalCard]);
+        session(['group' => $group]);
+
+        return view('telas.jogo', compact('animals', 'quadros', 'animalCard', "gameType", 'group'));
     }
 
-    public function jogoHabitatAquatico()
+    public function jogoHabitatAquatico($id)
     {
-        $animals = Animal::where('habitat', "Aquático")->inRandomOrder()->paginate(10);
-
-        $quadros = $animals->shuffle();
+        $user = auth()->user();
 
         $gameType = "Aquático";
 
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
+        if (!$group = Group::find($id)) {
+            $group = null;
+            $id = 0;
+        }
+
+        $animals = Animal::where('habitat', "Aquático")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $quadros = $animals->shuffle();
+        $animalSelecs = $animals->shuffle();
+
+        if ($user != null) {
+            $histories = Animal_User::where('user_id', $user->id)->get();
+
+            if (Animal_User::exists()) {
+
+                foreach ($animalSelecs as $key => $animalSelec) {
+                    foreach ($histories as $historie) {
+                        if ($animalSelec->id == $historie->animal_id) {
+                            unset($animalSelecs[$key]);
+                        }
+                    }
+                    $animalCard = $animalSelecs->shuffle()->first();
+                }
+            } else {
+                $animalCard = $animalSelecs->shuffle()->first();
+            }
+        }else{
+            $animalCard = null;
+        }
+
+
+        session(['card' => $animalCard]);
+        session(['group' => $group]);
+
+        return view('telas.jogo', compact('animals', 'quadros', 'animalCard', "gameType", 'group'));
     }
 
-    public function jogoHabitatTerrestre()
+    public function jogoHabitatTerrestre($id)
     {
-        $animals = Animal::where('habitat', "Terrestre")->inRandomOrder()->paginate(10);
-
-        $quadros = $animals->shuffle();
+        $user = auth()->user();
 
         $gameType = "Terrestre";
 
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
+        if (!$group = Group::find($id)) {
+            $group = null;
+            $id = 0;
+        }
+
+        $animals = Animal::where('habitat', "Terrestre")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $quadros = $animals->shuffle();
+        $animalSelecs = $animals->shuffle();
+
+        if ($user != null) {
+            $histories = Animal_User::where('user_id', $user->id)->get();
+
+            if (Animal_User::exists()) {
+
+                foreach ($animalSelecs as $key => $animalSelec) {
+                    foreach ($histories as $historie) {
+                        if ($animalSelec->id == $historie->animal_id) {
+                            unset($animalSelecs[$key]);
+                        }
+                    }
+                    $animalCard = $animalSelecs->shuffle()->first();
+                }
+            } else {
+                $animalCard = $animalSelecs->shuffle()->first();
+            }
+        }else{
+            $animalCard = null;
+        }
+
+
+        session(['card' => $animalCard]);
+        session(['group' => $group]);
+
+        return view('telas.jogo', compact('animals', 'quadros', 'animalCard', "gameType", 'group'));
     }
 
-    public function jogoBrasileiro()
+    public function jogoBrasileiro($id)
     {
-        $animals = Animal::where('brazilian', "Sim")->inRandomOrder()->paginate(10);
-
-        $quadros = $animals->shuffle();
+        $user = auth()->user();
 
         $gameType = "Brasileiros";
 
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
+        if (!$group = Group::find($id)) {
+            $group = null;
+            $id = 0;
+        }
+
+        $animals = Animal::where('brazilian', "Sim")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $quadros = $animals->shuffle();
+        $animalSelecs = $animals->shuffle();
+
+        if ($user != null) {
+            $histories = Animal_User::where('user_id', $user->id)->get();
+
+            if (Animal_User::exists()) {
+
+                foreach ($animalSelecs as $key => $animalSelec) {
+                    foreach ($histories as $historie) {
+                        if ($animalSelec->id == $historie->animal_id) {
+                            unset($animalSelecs[$key]);
+                        }
+                    }
+                    $animalCard = $animalSelecs->shuffle()->first();
+                }
+            } else {
+                $animalCard = $animalSelecs->shuffle()->first();
+            }
+        }else{
+            $animalCard = null;
+        }
+
+
+        session(['card' => $animalCard]);
+        session(['group' => $group]);
+
+        return view('telas.jogo', compact('animals', 'quadros', 'animalCard', "gameType", 'group'));
     }
 
-    public function jogoAleatorio()
+    public function jogoAleatorio($id)
     {
-        $animals = Animal::inRandomOrder()->paginate(10);
-
-        $quadros = $animals->shuffle();
+        $user = auth()->user();
 
         $gameType = "Aleatório";
 
-        return view('telas.jogo', compact('animals', 'quadros', "gameType"));
+        if (!$group = Group::find($id)) {
+            $group = null;
+            $id = 0;
+        }
+
+        $animals = Animal::inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $quadros = $animals->shuffle();
+        $animalSelecs = $animals->shuffle();
+
+        if ($user != null) {
+            $histories = Animal_User::where('user_id', $user->id)->get();
+
+            if (Animal_User::exists()) {
+
+                foreach ($animalSelecs as $key => $animalSelec) {
+                    foreach ($histories as $historie) {
+                        if ($animalSelec->id == $historie->animal_id) {
+                            unset($animalSelecs[$key]);
+                        }
+                    }
+                    $animalCard = $animalSelecs->shuffle()->first();
+                }
+            } else {
+                $animalCard = $animalSelecs->shuffle()->first();
+            }
+        } else {
+            $animalCard = null;
+        }
+
+
+        session(['card' => $animalCard]);
+        session(['group' => $group]);
+
+        return view('telas.jogo', compact('animals', 'quadros', 'animalCard', "gameType", 'group'));
     }
 }
