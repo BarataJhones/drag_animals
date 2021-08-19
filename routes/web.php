@@ -35,7 +35,6 @@ Route::middleware(['auth'])->group(function (){
 });
 
 Route::get('/home', [AnimalController::class, 'index'])->name('return.index');
-
 Route::get('/home', [AnimalController::class, 'index'])->name('return.index');
 Route::get('/selecao-jogo', [AnimalController::class, 'selecaoJogo'])->name('animals.selecao');
 

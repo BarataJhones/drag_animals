@@ -29,6 +29,16 @@ h3{
   background-color: #ef76fa;
 }
 
+.botaoReiniciar{
+  margin-bottom: 1em;
+  width: 7em; height: auto;
+  font-size: 1.5em;
+  color:white;
+  border-radius: 50px;
+  background-color: #ef76fa;
+}
+
+
 .timer{
   font-size: 2.5em;
   font-weight: bold;
@@ -54,10 +64,7 @@ h3{
 
 .botaoAudio{
   background-color: #0086c1;
-  color: white;
-  font-weight: bold;
 }
-
   .imagem{
     width: 9em;
     height: 9em;
