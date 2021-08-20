@@ -147,7 +147,18 @@
 
                                 <div class="quadro text-center" style="margin-bottom: 1em">
                                     
-                                    <img class="cromoBackground" src="{{ Storage::disk('s3')->url('img-cromo-fundo.png') }}" alt="">
+                                    @switch($habitat = $animalsCard->animal->habitat)
+                                        @case($habitat == "Aéreo")
+                                            <img class="cromoBackground" src="{{ Storage::disk('s3')->url('cromo-aereo.png') }}" alt="">
+                                            @break
+                                        @case($habitat == "Aquático")
+                                            <img class="cromoBackground" src="{{ Storage::disk('s3')->url('cromo-aquatico.png') }}" alt="">
+                                            @break
+                                        @case($habitat == "Terrestre")
+                                            <img class="cromoBackground" src="{{ Storage::disk('s3')->url('cromo-terrestre.png') }}" alt="">
+                                            @break
+                                        @default
+                                    @endswitch
                                     <img class="cromoAnimal"
                                         src="{{ Storage::disk('s3')->url($animalsCard->animal->image) }}" alt="">
 

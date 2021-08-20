@@ -71,7 +71,7 @@ function drop(ev) {
     if (ev.target.id.slice(7) == data2.slice(7)) {
         ev.target.appendChild(document.getElementById(data2));
         contAcertos++;
-        if (contAcertos === 10) {
+        if (contAcertos === 3) {
             document.getElementById("mensagem").removeAttribute('hidden');
             clearInterval(timerInterval);
             document.getElementById("playButton").setAttribute("hidden", true);
