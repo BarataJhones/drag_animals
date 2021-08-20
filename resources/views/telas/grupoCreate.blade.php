@@ -1,10 +1,7 @@
-<title>Criar grupo</title>
-<link rel="shortcut icon"
-    href="https://www.pngkit.com/png/full/392-3929588_kawaii-cute-edit-editing-overlay-png-dog-draw.png"
-    type="image/x-icon">
 
-<!-- Fonts -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+@include('telas.common.header')
+
+<title>Criar grupo</title>
 
 <!-- Styles -->
 <link rel="stylesheet" href="{{ asset('css/main.css') }}">
@@ -14,11 +11,8 @@
     <?php
         $avatar = Auth::user()->avatar;
         $userName = Auth::user()->name;    
-        
     ?>
-
-    @include('telas.common.header')
-
+    
     <div class="container-fluid">
         <div class="row">
 
@@ -69,8 +63,6 @@
                         <img class="img-fluid mx-auto d-block" src="img/grupo.png" alt="">
                     </div>
 
-
-
                     <div class="justify-content-left">
                         <div>
                             <span class="groupName">Nome do grupo</span> · Quantidade de membros
@@ -90,17 +82,17 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">
-                                        <i class="fas fa-comments"></i> Discussão
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
                                         <i class="fas fa-trophy"></i> Pontuações
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">
                                         <i class="fas fa-user"></i> Membros
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" style="color: #50ce37 !important">
+                                        <i class="fas fa-gamepad"></i> Jogar
                                     </a>
                                 </li>
                             </ul>
@@ -115,7 +107,5 @@
 
         </div>
     </div>
-
-
 
 </body>

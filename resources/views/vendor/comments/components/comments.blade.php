@@ -56,17 +56,19 @@
             </div>
         </div>
     @endauth
-
+    @php
+        $count = count($comments); //Modifiquei o segundo loop para inverter a ordem dos comentários, começando dos mais recentes
+    @endphp
     @foreach($grouped_comments as $comment_id => $comments)
         {{-- Process parent nodes --}}
         @if($comment_id == '')
-            @foreach($comments as $comment)
+            @for($i = $count-1; $i >= 0; $i--)
                 @include('comments::_comment', [
-                    'comment' => $comment,
+                    'comment' => $comments[$i],
                     'grouped_comments' => $grouped_comments,
                     'maxIndentationLevel' => $maxIndentationLevel ?? 3
                 ])
-            @endforeach
+            @endfor
         @endif
     @endforeach
 </div>
