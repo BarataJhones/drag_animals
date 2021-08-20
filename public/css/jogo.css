@@ -29,7 +29,6 @@ h3{
   background-color: #ef76fa;
 }
 
-
 .timer{
   font-size: 2.5em;
   font-weight: bold;
@@ -57,21 +56,21 @@ h3{
   background-color: #0086c1;
   color: white;
   font-weight: bold;
+  
+}
+.imagem{
+  width: 9em;
+  height: 9em;
+  object-fit: cover;
 }
 
-  .imagem{
-    width: 9em;
-    height: 9em;
-    object-fit: cover;
-  }
-
-  .mensagem{
-    font-size: 1em;
-    color: #0086c1;
-    text-shadow: 2px 2px 3px #ace4f5 ;
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: bold;
-  }
+.mensagem{
+  font-size: 1em;
+  color: #0086c1;
+  text-shadow: 2px 2px 3px #ace4f5 ;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: bold;
+}
 
   /* CROMOs
 

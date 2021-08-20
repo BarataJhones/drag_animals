@@ -35,7 +35,7 @@
             <tbody>
                 @foreach ($animals as $animal)
                     <tr>
-                        <td>{{ $animal->name }}</td>
+                        <td>{{ $animal->nameEnglish }}</td>
                         <td>{{ $animal->class }}</td>
                         <td>{{ $animal->order }}</td>
                         <td>{{ $animal->habitat }}</td>
