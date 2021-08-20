@@ -15,9 +15,9 @@
         <div class="w-100 mr-2">
 
             <div class="py-2 text-center">
-                <h2 class="titulo">Pontuações de {{$groupName}}</h2>
-                <h3 class="titulo">
-                     Você pode listar o ranking por uma categoria específica, ou digitar o nome de um usuário, instituição ou série e buscar as pontuações.     
+                <h3>
+                    Você pode listar o ranking por uma categoria específica, ou digitar o nome de um usuário, instituição ou série e buscar as pontuações. <br><br>
+                    <span class="groupName">Pontuações de {{$groupName}} </span>  
                 </h3>
             </div> 
 

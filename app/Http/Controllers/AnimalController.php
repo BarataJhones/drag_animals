@@ -156,7 +156,7 @@ class AnimalController extends Controller
         $user = auth()->user();
         $rankings = Ranking::where('user_id', $user->id)->orderBy('time')->paginate(3);
         $animals = Animal::where('user_id', $user->id)->orderBy('id', 'DESC')->paginate(3);
-        $groups = Group_User::where('user_id', $user->id)->paginate(3);
+        $groups = Group_User::where('user_id', $user->id)->paginate();
         $animalsCards = Animal_User::where('user_id', $user->id)->paginate(4);
 
         return view('telas.dashboard', compact('user', 'rankings', 'animals', 'groups', 'animalsCards'));
@@ -251,8 +251,8 @@ class AnimalController extends Controller
         }
 
         return redirect()
-            ->route('telas.dashboard')
-            ->with('message', 'Grupo criado com sucesso');
+        ->route('dashboard')
+        ->with('message', 'Grupo criado com sucesso');
     }
 
     public function viewGroup($id, $auth = 0)

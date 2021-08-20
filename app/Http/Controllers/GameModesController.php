@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Animal;
-
 use App\Models\Group;
 use App\Models\Animal_User;
-use App\Models\Ranking;
 
 class GameModesController extends Controller
 {

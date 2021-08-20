@@ -22,17 +22,19 @@ Route::middleware(['auth'])->group(function (){
     Route::delete('/dashboard/animal/{id}', [AnimalController::class, 'destroy'])->name('animal.destroy');
     Route::get('/list-animals', [AnimalController::class, 'listAnimals'])->name('animals.list');
     Route::any('/list-animals/search', [AnimalController::class, 'searchAnimal'])->name('animal.search');
-    Route::any('/album', [AnimalController::class, 'album'])->name('album');
+    Route::get('/album', [AnimalController::class, 'album'])->name('album');
 
-    Route::any('/grupo', [AnimalController::class, 'grupo'])->name('grupo');
-    Route::any('/grupoCriar', [AnimalController::class, 'grupoCreate'])->name('group.create');
-    Route::post('/group-register', [AnimalController::class, 'storeGroup'])->name('group.register');
+    Route::get('/grupo', [AnimalController::class, 'grupo'])->name('grupo');
+    Route::get('/grupoCriar', [AnimalController::class, 'grupoCreate'])->name('group.create');
+    Route::post('/grupoCriar', [AnimalController::class, 'storeGroup'])->name('group.register');
 
     Route::get('/grupo/{id}', [AnimalController::class, 'viewGroup'])->name('group.viewGroup');
     Route::any('/grupo/{id}/add', [AnimalController::class, 'groupAdd'])->name('group.add');
     Route::get('selecao-jogo/{id}', [AnimalController::class, 'selecaoJogoGrupo'])->name('animals.selecaoGrupo');
     Route::get('/ranking/{id}', [AnimalController::class, 'rankingGrupo'])->name('ranking.grupo');
 });
+
+Route::get('/home', [AnimalController::class, 'index'])->name('return.index');
 
 Route::get('/home', [AnimalController::class, 'index'])->name('return.index');
 Route::get('/home', [AnimalController::class, 'index'])->name('return.index');
