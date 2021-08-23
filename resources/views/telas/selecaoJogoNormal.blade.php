@@ -9,7 +9,7 @@
         <li><a class="dropdown-item subClasse" href="{{ route('jogo.class_ave', 0) }}"><i class="fas fa-crow"></i> Aves</a></li>
         <li><a class="dropdown-item subClasse" href="{{ route('jogo.class_mamifero', 0) }}"><i class="fas fa-dog"></i> Mamíferos</a></li>
         <li><a class="dropdown-item subClasse" href="{{ route('jogo.class_inseto', 0) }}"><i class="fas fa-bug"></i> Insetos</a></li>
-        <li><a class="dropdown-item subClasse" href="{{ route('jogo.class_peixe', 0) }}"><i class="fas fa-fish"></i> Peixes</a></li>
+        <li><a class="dropdown-item subClasse" href="{{ route('jogo.class_peixe', 0) }}"><i class="fas fa-fish"></i> Peixes, Asterozoa, Cefalópode, Cnidários e Crustáceos</a></li>
         <li><a class="dropdown-item subClasse" href="{{ route('jogo.class_reptil', 0) }}"><i class="fas fa-frog"></i> Reptéis e anfíbios</a></li>
       </ul>
     </div>

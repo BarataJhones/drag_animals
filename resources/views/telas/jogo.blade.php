@@ -113,7 +113,7 @@
                                 Você ganhou a figurinha do <b>{{$animalCard->nameEnglish}} ({{$animalCard->namePort}})</b>! <br>
                             @endif
                         
-                        <form action="{{ route ('ranking.register') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route ('game.save') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <input type="text" name="game_type" value="{{$gameType}}" hidden>
                             <input type="text" id="timerResultForm" name="time" value="" hidden>

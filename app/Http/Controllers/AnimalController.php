@@ -66,7 +66,7 @@ class AnimalController extends Controller
 
         $user = auth()->user();
 
-        $animals = Animal::paginate();
+        $animals = Animal::get();
 
         $animalsCards = Animal_User::where('user_id', $user->id)->get();
 
@@ -117,7 +117,7 @@ class AnimalController extends Controller
             ->with('message', 'Animal cadastrado com sucesso');
     }
 
-    public function storeRanking(StoreUpdateRanking $request) //MUDAR NOME
+    public function saveGame(StoreUpdateRanking $request) //MUDAR NOME
     {
         $data = $request->all();
 
@@ -147,8 +147,8 @@ class AnimalController extends Controller
 
 
         return redirect()
-            ->route('rankin.main')
-            ->with('message', 'Pontuação salva');
+            ->route('album')
+            ->with('message', 'Pontuação e figurinhas salvas');
     }
 
     public function dashboard()
