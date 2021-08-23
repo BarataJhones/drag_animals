@@ -106,18 +106,18 @@ h3{
 }*/
 
 .cromoDetail{
-    font-size: 1em;
+    font-size: 0.9em;
     color: #0086c1;
     position: relative;
     z-index: 3;
-    bottom: 250px;
+    bottom: 240px;
     left: 55px;
 }
 
 .cronoAnimalNameSci{
     font-weight: 500;
     font-style: italic;
-    font-size: 0.5em;
+    font-size: 0.6em;
 }
 
 .botaoAudio{

@@ -19,7 +19,7 @@ class GameModesController extends Controller
             $id = 0;
         }
 
-        $animals = Animal::where('class', "Ave")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $animals = Animal::where('class', "Ave")->inRandomOrder()->paginate(10); ////MUDEI A QUANTIDADE DE ANIMAIS
         $quadros = $animals->shuffle();
         $animalSelecs = $animals->shuffle();
 
@@ -61,7 +61,7 @@ class GameModesController extends Controller
             $id = 0;
         }
 
-        $animals = Animal::where('class', "Anfíbio")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $animals = Animal::where('class', "Anfíbio")->inRandomOrder()->paginate(10); ////MUDEI A QUANTIDADE DE ANIMAIS
         $quadros = $animals->shuffle();
         $animalSelecs = $animals->shuffle();
 
@@ -103,7 +103,7 @@ class GameModesController extends Controller
             $id = 0;
         }
 
-        $animals = Animal::where('class', "Mamífero")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $animals = Animal::where('class', "Mamífero")->inRandomOrder()->paginate(10); ////MUDEI A QUANTIDADE DE ANIMAIS
         $quadros = $animals->shuffle();
         $animalSelecs = $animals->shuffle();
 
@@ -145,7 +145,7 @@ class GameModesController extends Controller
             $id = 0;
         }
 
-        $animals = Animal::where('class', "Inseto")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $animals = Animal::where('class', "Inseto")->inRandomOrder()->paginate(10); ////MUDEI A QUANTIDADE DE ANIMAIS
         $quadros = $animals->shuffle();
         $animalSelecs = $animals->shuffle();
 
@@ -187,7 +187,7 @@ class GameModesController extends Controller
             $id = 0;
         }
 
-        $animals = Animal::where('class', "Peixe")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $animals = Animal::where('class', "Peixe")->inRandomOrder()->paginate(10); ////MUDEI A QUANTIDADE DE ANIMAIS
         $quadros = $animals->shuffle();
         $animalSelecs = $animals->shuffle();
 
@@ -229,7 +229,7 @@ class GameModesController extends Controller
             $id = 0;
         }
 
-        $animals = Animal::where('class', "Réptil/Anfíbio")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $animals = Animal::where('class', "Réptil/Anfíbio")->inRandomOrder()->paginate(10); ////MUDEI A QUANTIDADE DE ANIMAIS
         $quadros = $animals->shuffle();
         $animalSelecs = $animals->shuffle();
 
@@ -271,7 +271,7 @@ class GameModesController extends Controller
             $id = 0;
         }
 
-        $animals = Animal::where('order', "Carnívoro")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $animals = Animal::where('order', "Carnívoro")->inRandomOrder()->paginate(10); ////MUDEI A QUANTIDADE DE ANIMAIS
         $quadros = $animals->shuffle();
         $animalSelecs = $animals->shuffle();
 
@@ -313,7 +313,7 @@ class GameModesController extends Controller
             $id = 0;
         }
 
-        $animals = Animal::where('order', "Herbívoro")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $animals = Animal::where('order', "Herbívoro")->inRandomOrder()->paginate(10); ////MUDEI A QUANTIDADE DE ANIMAIS
         $quadros = $animals->shuffle();
         $animalSelecs = $animals->shuffle();
 
@@ -355,7 +355,7 @@ class GameModesController extends Controller
             $id = 0;
         }
 
-        $animals = Animal::where('order', "Onívoro")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $animals = Animal::where('order', "Onívoro")->inRandomOrder()->paginate(10); ////MUDEI A QUANTIDADE DE ANIMAIS
         $quadros = $animals->shuffle();
         $animalSelecs = $animals->shuffle();
 
@@ -397,7 +397,7 @@ class GameModesController extends Controller
             $id = 0;
         }
 
-        $animals = Animal::where('habitat', "Aéreo")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $animals = Animal::where('habitat', "Aéreo")->inRandomOrder()->paginate(10); ////MUDEI A QUANTIDADE DE ANIMAIS
         $quadros = $animals->shuffle();
         $animalSelecs = $animals->shuffle();
 
@@ -439,7 +439,7 @@ class GameModesController extends Controller
             $id = 0;
         }
 
-        $animals = Animal::where('habitat', "Aquático")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $animals = Animal::where('habitat', "Aquático")->inRandomOrder()->paginate(10); ////MUDEI A QUANTIDADE DE ANIMAIS
         $quadros = $animals->shuffle();
         $animalSelecs = $animals->shuffle();
 
@@ -481,7 +481,7 @@ class GameModesController extends Controller
             $id = 0;
         }
 
-        $animals = Animal::where('habitat', "Terrestre")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $animals = Animal::where('habitat', "Terrestre")->inRandomOrder()->paginate(10); ////MUDEI A QUANTIDADE DE ANIMAIS
         $quadros = $animals->shuffle();
         $animalSelecs = $animals->shuffle();
 
@@ -523,7 +523,7 @@ class GameModesController extends Controller
             $id = 0;
         }
 
-        $animals = Animal::where('brazilian', "Sim")->inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $animals = Animal::where('brazilian', "Sim")->inRandomOrder()->paginate(10); ////MUDEI A QUANTIDADE DE ANIMAIS
         $quadros = $animals->shuffle();
         $animalSelecs = $animals->shuffle();
 
@@ -565,7 +565,7 @@ class GameModesController extends Controller
             $id = 0;
         }
 
-        $animals = Animal::inRandomOrder()->paginate(3); ////MUDEI A QUANTIDADE DE ANIMAIS
+        $animals = Animal::inRandomOrder()->paginate(10); ////MUDEI A QUANTIDADE DE ANIMAIS
         $quadros = $animals->shuffle();
         $animalSelecs = $animals->shuffle();
 

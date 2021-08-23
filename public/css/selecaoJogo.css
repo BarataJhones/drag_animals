@@ -6,7 +6,7 @@
     text-align: center;
   }
 
-  .zIndex{
-    position: relative;
-    z-index: 3;
-  }
+.zIndex{
+  position: relative;
+  z-index: 3;
+}

@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth'])->group(function (){
     Route::get('/animals-register', [AnimalController::class, 'animalsRegister'])->name('animals.viewRegister');
     Route::post('/animals-register', [AnimalController::class, 'store'])->name('animals.register'); 
-    Route::post('/jogo/ranking-register', [AnimalController::class, 'storeRanking'])->name('ranking.register');
+    Route::post('/jogo/save', [AnimalController::class, 'saveGame'])->name('game.save');
     Route::get('/dashboard', [AnimalController::class, 'dashboard'])->name('dashboard');
     Route::delete('/dashboard/animal/{id}', [AnimalController::class, 'destroy'])->name('animal.destroy');
     Route::get('/list-animals', [AnimalController::class, 'listAnimals'])->name('animals.list');
